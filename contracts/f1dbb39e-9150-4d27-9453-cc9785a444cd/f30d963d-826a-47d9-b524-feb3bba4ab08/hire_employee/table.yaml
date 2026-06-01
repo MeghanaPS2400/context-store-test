@@ -18,7 +18,7 @@ dataProduct: hire_stack
 description:
   purpose: The Hire Employee table consolidates key employee hire information by mapping and transforming source fields such
     as employee identifiers, employment dates, position details, and organizational references to support workforce management
-    processes
+    processes.. 
   limitations: This table relies on direct mappings and lookup value mappings from source fields, with some fields conditionally
     derived or type cast; it does not include data for custom organization references where source values are unavailable.
   usage: Use this table to obtain standardized and comprehensive hire-related employee data, including employment dates, position
