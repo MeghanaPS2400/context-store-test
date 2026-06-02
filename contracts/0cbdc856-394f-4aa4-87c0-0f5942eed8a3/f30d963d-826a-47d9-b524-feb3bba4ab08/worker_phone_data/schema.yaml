@@ -1,0 +1,120 @@
+table_name: worker_phone_data
+description: Worker Phone Data table in human_resources domain
+columns:
+- name: worker_id
+  business_name: Worker ID
+  physical_name: worker_id
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Employee Number
+  sample_values: []
+  tags: []
+- name: worker_type
+  business_name: Worker Type
+  physical_name: worker_type
+  logical_type: EE/CW
+  physical_type: EE/CW
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Employee Class/Type & contract type
+  sample_values: []
+  tags: []
+- name: phone_number_type
+  business_name: Phone Number Type
+  physical_name: phone_number_type
+  logical_type: Communication_Usage_Type_ID
+  physical_type: Communication_Usage_Type_ID
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Phone Type
+  sample_values: []
+  tags: []
+- name: primary
+  business_name: Primary
+  physical_name: primary
+  logical_type: Y/N
+  physical_type: Y/N
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Is Primary
+  sample_values: []
+  tags: []
+- name: country_iso_code
+  business_name: Country ISO Code
+  physical_name: country_iso_code
+  logical_type: ISO_3166-1_Alpha-3_Code
+  physical_type: ISO_3166-1_Alpha-3_Code
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Country
+  sample_values: []
+  tags: []
+- name: international_phone_code
+  business_name: International Phone Code
+  physical_name: international_phone_code
+  logical_type: Number
+  physical_type: Number
+  required: false
+  nullable: true
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: N/A
+  sample_values: []
+  tags: []
+- name: phone_number
+  business_name: Phone Number
+  physical_name: phone_number
+  logical_type: Number
+  physical_type: Number
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Phone Number
+  sample_values: []
+  tags: []
+- name: phone_extension
+  business_name: Phone Extension
+  physical_name: phone_extension
+  logical_type: Number
+  physical_type: Number
+  required: false
+  nullable: true
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Extension
+  sample_values: []
+  tags: []
+- name: phone_device_type
+  business_name: Phone Device Type
+  physical_name: phone_device_type
+  logical_type: Phone_Device_Type_ID
+  physical_type: Phone_Device_Type_ID
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: N/A
+  sample_values: []
+  tags: []

@@ -1,0 +1,14 @@
+ownership: {}
+source: {}
+target:
+  target: ''
+  description: Hire Employee table in human_resources domain.
+  domain_tags: []
+  format: ''
+  target_location: ''
+  target_schema: human_resources
+  target_table: hire_employee
+  primary_key:
+  - employee_id_associate_id
+  natural_key: []
+sla: {}

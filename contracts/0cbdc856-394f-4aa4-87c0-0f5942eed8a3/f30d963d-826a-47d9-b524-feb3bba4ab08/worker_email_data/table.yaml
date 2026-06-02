@@ -1,0 +1,10 @@
+ownership: {}
+source: {}
+target:
+  description: Worker Email Data table in human_resources domain
+  domain_tags: []
+  target_schema: human_resources
+  target_table: worker_email_data
+  primary_key: []
+  natural_key: []
+sla: {}

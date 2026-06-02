@@ -1,0 +1,196 @@
+table_name: default_compensation_positions
+description: Default Compensation Positions table in human_resources domain
+domain: human_resources
+primary_key: []
+columns:
+- name: position_id
+  description: Position ID
+  dtype: Text
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: default_compensation_positions
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Text data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(position_id AS Text) IS NOT NULL OR position_id IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: default_compensation_positions
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: position_id IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: default_compensation_positions
+    rule_category: GENERAL
+    sub_category: REQUIRED_FIELD_CHECK
+    description: position_id is required
+    severity: HIGH
+    validation_logic: position_id IS NOT NULL
+    related_columns: []
+  profiling: {}
+- name: compensation_package_name
+  description: Compensation Package Name
+  dtype: Compensation_Package_ID
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: default_compensation_positions
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Compensation_Package_ID data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(compensation_package_name AS Compensation_Package_ID) IS NOT NULL OR compensation_package_name
+      IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: default_compensation_positions
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: compensation_package_name IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: default_compensation_positions
+    rule_category: GENERAL
+    sub_category: REQUIRED_FIELD_CHECK
+    description: compensation_package_name is required
+    severity: HIGH
+    validation_logic: compensation_package_name IS NOT NULL
+    related_columns: []
+  profiling: {}
+- name: compensation_grade_name
+  description: Compensation Grade Name
+  dtype: Compensation_Grade_ID
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: default_compensation_positions
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Compensation_Grade_ID data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(compensation_grade_name AS Compensation_Grade_ID) IS NOT NULL OR compensation_grade_name IS
+      NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: default_compensation_positions
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: compensation_grade_name IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: default_compensation_positions
+    rule_category: GENERAL
+    sub_category: REQUIRED_FIELD_CHECK
+    description: compensation_grade_name is required
+    severity: HIGH
+    validation_logic: compensation_grade_name IS NOT NULL
+    related_columns: []
+  profiling: {}
+- name: compensation_grade_profile_name
+  description: Compensation Grade Profile Name
+  dtype: Compensation_Grade_Profile_ID
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: default_compensation_positions
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Compensation_Grade_Profile_ID data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(compensation_grade_profile_name AS Compensation_Grade_Profile_ID) IS NOT NULL OR compensation_grade_profile_name
+      IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: compensation_step_name
+  description: Compensation Step Name
+  dtype: Compensation_Step_ID
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: default_compensation_positions
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Compensation_Step_ID data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(compensation_step_name AS Compensation_Step_ID) IS NOT NULL OR compensation_step_name IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: progression_start_date
+  description: Progression Start Date
+  dtype: yyyy-mm-dd
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: default_compensation_positions
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared yyyy-mm-dd data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(progression_start_date AS yyyy-mm-dd) IS NOT NULL OR progression_start_date IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: compensation_plan
+  description: Compensation Plan
+  dtype: Compensation_Plan_ID
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: default_compensation_positions
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Compensation_Plan_ID data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(compensation_plan AS Compensation_Plan_ID) IS NOT NULL OR compensation_plan IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: default_compensation_positions
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: compensation_plan IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: default_compensation_positions
+    rule_category: GENERAL
+    sub_category: REQUIRED_FIELD_CHECK
+    description: compensation_plan is required
+    severity: HIGH
+    validation_logic: compensation_plan IS NOT NULL
+    related_columns: []
+  profiling: {}
+- name: pay_plan_amount
+  description: Pay Plan Amount
+  dtype: Number
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: default_compensation_positions
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Number data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(pay_plan_amount AS Number) IS NOT NULL OR pay_plan_amount IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}

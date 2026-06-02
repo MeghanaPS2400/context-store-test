@@ -1,0 +1,11 @@
+ownership: {}
+source: {}
+target:
+  description: Assign Employee to Pay Group table in human_resources domain
+  domain_tags: []
+  target_schema: human_resources
+  target_table: assign_employee_to_pay_group
+  primary_key:
+  - employee_id
+  natural_key: []
+sla: {}

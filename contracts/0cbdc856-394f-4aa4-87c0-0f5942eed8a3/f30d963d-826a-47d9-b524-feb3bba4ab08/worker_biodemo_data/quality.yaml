@@ -1,0 +1,331 @@
+table_name: worker_biodemo_data
+description: Worker BioDemo  Data table in human_resources domain
+domain: human_resources
+primary_key: []
+columns:
+- name: worker_id
+  description: Worker ID
+  dtype: Text
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Text data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(worker_id AS Text) IS NOT NULL OR worker_id IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: worker_id IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: REQUIRED_FIELD_CHECK
+    description: worker_id is marked as Required
+    severity: HIGH
+    validation_logic: worker_id IS NOT NULL
+    related_columns: []
+  profiling: {}
+- name: worker_type
+  description: Worker Type
+  dtype: EE/CW
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared EE/CW data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(worker_type AS EE/CW) IS NOT NULL OR worker_type IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: worker_type IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: LOOKUP_EXISTENCE_CHECK
+    description: Field values must exist in the approved reference dataset.
+    severity: HIGH
+    validation_logic: worker_type exists in reference dataset
+    business_impact: Invalid references may break enterprise joins and reporting.
+    related_columns: []
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: REQUIRED_FIELD_CHECK
+    description: worker_type is marked as Required
+    severity: HIGH
+    validation_logic: worker_type IS NOT NULL
+    related_columns: []
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: 'Worker Type: lookup transformation missing reference'
+    severity: HIGH
+    related_columns: []
+  profiling: {}
+- name: date_of_birth
+  description: Date of Birth
+  dtype: yyyy-mm-dd
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared yyyy-mm-dd data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(date_of_birth AS yyyy-mm-dd) IS NOT NULL OR date_of_birth IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: date_of_death
+  description: Date of Death
+  dtype: yyyy-mm-dd
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared yyyy-mm-dd data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(date_of_death AS yyyy-mm-dd) IS NOT NULL OR date_of_death IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: gender_type
+  description: Gender Type
+  dtype: Gender_Code
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Gender_Code data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(gender_type AS Gender_Code) IS NOT NULL OR gender_type IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: LOOKUP_EXISTENCE_CHECK
+    description: Field values must exist in the approved reference dataset.
+    severity: HIGH
+    validation_logic: gender_type exists in reference dataset
+    business_impact: Invalid references may break enterprise joins and reporting.
+    related_columns: []
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: 'Gender Type: lookup transformation missing reference'
+    severity: HIGH
+    related_columns: []
+  profiling: {}
+- name: reporting_gender
+  description: Reporting Gender
+  dtype: Gender_Code
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Gender_Code data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(reporting_gender AS Gender_Code) IS NOT NULL OR reporting_gender IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: sexual_orientation_gender_identity
+  description: Sexual Orientation & Gender Identity
+  dtype: LGBT_Identification_ID
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared LGBT_Identification_ID data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(sexual_orientation_gender_identity AS LGBT_Identification_ID) IS NOT NULL OR sexual_orientation_gender_identity
+      IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: LOOKUP_EXISTENCE_CHECK
+    description: Field values must exist in the approved reference dataset.
+    severity: HIGH
+    validation_logic: sexual_orientation_gender_identity exists in reference dataset
+    business_impact: Invalid references may break enterprise joins and reporting.
+    related_columns: []
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: 'Sexual Orientation & Gender Identity: lookup transformation missing reference'
+    severity: HIGH
+    related_columns: []
+  profiling: {}
+- name: sexual_orientation
+  description: Sexual Orientation
+  dtype: Sexual_Orientation_ID
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Sexual_Orientation_ID data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(sexual_orientation AS Sexual_Orientation_ID) IS NOT NULL OR sexual_orientation IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: LOOKUP_EXISTENCE_CHECK
+    description: Field values must exist in the approved reference dataset.
+    severity: HIGH
+    validation_logic: sexual_orientation exists in reference dataset
+    business_impact: Invalid references may break enterprise joins and reporting.
+    related_columns: []
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: 'Sexual Orientation: lookup transformation missing reference'
+    severity: HIGH
+    related_columns: []
+  profiling: {}
+- name: pronoun
+  description: Pronoun
+  dtype: Pronoun_ID
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Pronoun_ID data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(pronoun AS Pronoun_ID) IS NOT NULL OR pronoun IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: marital_status_type
+  description: Marital Status Type
+  dtype: Marital_Status_ID
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Marital_Status_ID data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(marital_status_type AS Marital_Status_ID) IS NOT NULL OR marital_status_type IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: LOOKUP_EXISTENCE_CHECK
+    description: Field values must exist in the approved reference dataset.
+    severity: HIGH
+    validation_logic: marital_status_type exists in reference dataset
+    business_impact: Invalid references may break enterprise joins and reporting.
+    related_columns: []
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: 'Marital Status Type: lookup transformation missing reference'
+    severity: HIGH
+    related_columns: []
+  profiling: {}
+- name: marital_status_date
+  description: Marital Status Date
+  dtype: yyyy-mm-dd
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared yyyy-mm-dd data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(marital_status_date AS yyyy-mm-dd) IS NOT NULL OR marital_status_date IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: hispanic_or_latino
+  description: Hispanic or Latino
+  dtype: True/False
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared True/False data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(hispanic_or_latino AS True/False) IS NOT NULL OR hispanic_or_latino IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: ethnicity_code
+  description: Ethnicity Code
+  dtype: Ethnicity_ID
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Ethnicity_ID data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(ethnicity_code AS Ethnicity_ID) IS NOT NULL OR ethnicity_code IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: ethnicity_code_visual_survey
+  description: Ethnicity Code - Visual Survey
+  dtype: Ethnicity_ID
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_biodemo_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Ethnicity_ID data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(ethnicity_code_visual_survey AS Ethnicity_ID) IS NOT NULL OR ethnicity_code_visual_survey IS
+      NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}

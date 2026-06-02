@@ -1,0 +1,68 @@
+table_name: terminate_employees
+description: Terminate Employees table in human_resources domain
+columns:
+- name: employee_id
+  business_name: Employee ID
+  physical_name: employee_id
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Employee Number
+  sample_values: []
+  tags: []
+- name: termination_date
+  business_name: Termination Date
+  physical_name: termination_date
+  logical_type: dd-MMM-yyyy
+  physical_type: dd-MMM-yyyy
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Separation Date
+  sample_values: []
+  tags: []
+- name: last_day_of_work
+  business_name: Last Day of Work
+  physical_name: last_day_of_work
+  logical_type: dd-MMM-yyyy
+  physical_type: dd-MMM-yyyy
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Last Day Worked
+  sample_values: []
+  tags: []
+- name: primary_termination_subcategory_reason
+  business_name: Primary Termination Subcategory Reason
+  physical_name: primary_termination_subcategory_reason
+  logical_type: Termination_Subcategory_ID
+  physical_type: Termination_Subcategory_ID
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Event/Event Reason
+  sample_values: []
+  tags: []
+- name: pay_through_date
+  business_name: Pay Through Date
+  physical_name: pay_through_date
+  logical_type: dd-MMM-yyyy
+  physical_type: dd-MMM-yyyy
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Last Day Paid
+  sample_values: []
+  tags: []

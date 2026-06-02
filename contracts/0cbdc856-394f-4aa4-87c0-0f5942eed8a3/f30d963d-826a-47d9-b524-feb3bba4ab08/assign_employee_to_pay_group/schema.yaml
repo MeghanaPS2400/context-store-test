@@ -1,0 +1,54 @@
+table_name: assign_employee_to_pay_group
+description: Assign Employee to Pay Group table in human_resources domain
+columns:
+- name: employee_id
+  business_name: Employee ID
+  physical_name: employee_id
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: true
+  unique: true
+  identifier_type: Primary Key
+  description: ''
+  source_column: Employee Number
+  sample_values: []
+  tags: []
+- name: effective_date
+  business_name: Effective Date
+  physical_name: effective_date
+  logical_type: dd-MMM-yyyy
+  physical_type: dd-MMM-yyyy
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  sample_values: []
+  tags: []
+- name: position_id
+  business_name: Position ID
+  physical_name: position_id
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Position Number
+  sample_values: []
+  tags: []
+- name: pay_group_id
+  business_name: Pay Group ID
+  physical_name: pay_group_id
+  logical_type: Organization_Reference_ID
+  physical_type: Organization_Reference_ID
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  sample_values: []
+  tags: []

@@ -1,0 +1,550 @@
+table_name: worker_address_data
+description: Worker Address  Data human_resources
+domain: human_resources
+primary_key: []
+columns:
+- name: worker_id
+  description: Worker ID
+  dtype: Text
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Text data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(worker_id AS Text) IS NOT NULL OR worker_id IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: worker_id IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: worker_id is required
+    severity: HIGH
+    validation_logic: worker_id IS NOT NULL
+    related_columns: []
+  profiling: {}
+- name: worker_type
+  description: Worker Type
+  dtype: EE/CW
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared EE/CW data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(worker_type AS EE/CW) IS NOT NULL OR worker_type IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: worker_type IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: LOOKUP_EXISTENCE_CHECK
+    description: Field values must exist in the approved reference dataset.
+    severity: HIGH
+    validation_logic: worker_type exists in reference dataset
+    business_impact: Invalid references may break enterprise joins and reporting.
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: worker_type is required
+    severity: HIGH
+    validation_logic: worker_type IS NOT NULL
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: 'Worker Type: lookup transformation missing reference'
+    severity: HIGH
+    related_columns: []
+  profiling: {}
+- name: address_type
+  description: Address Type
+  dtype: Communication_Usage_Type_ID
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Communication_Usage_Type_ID data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(address_type AS Communication_Usage_Type_ID) IS NOT NULL OR address_type IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: address_type IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: LOOKUP_EXISTENCE_CHECK
+    description: Field values must exist in the approved reference dataset.
+    severity: HIGH
+    validation_logic: address_type exists in reference dataset
+    business_impact: Invalid references may break enterprise joins and reporting.
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: address_type is required
+    severity: HIGH
+    validation_logic: address_type IS NOT NULL
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: 'Address Type: lookup transformation missing reference'
+    severity: HIGH
+    related_columns: []
+  profiling: {}
+- name: primary
+  description: Primary
+  dtype: True/False
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared True/False data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(primary AS True/False) IS NOT NULL OR primary IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: primary IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: primary is required
+    severity: HIGH
+    validation_logic: primary IS NOT NULL
+    related_columns: []
+  profiling: {}
+- name: event_effective_date
+  description: Event Effective Date
+  dtype: dd-MMM-yyyy
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared dd-MMM-yyyy data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(event_effective_date AS dd-MMM-yyyy) IS NOT NULL OR event_effective_date IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: address_effective_date
+  description: Address Effective Date
+  dtype: dd-MMM-yyyy
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared dd-MMM-yyyy data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(address_effective_date AS dd-MMM-yyyy) IS NOT NULL OR address_effective_date IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: country_iso_code
+  description: Country ISO Code
+  dtype: ISO_3166-1_Alpha-3_Code
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared ISO_3166-1_Alpha-3_Code data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(country_iso_code AS ISO_3166-1_Alpha-3_Code) IS NOT NULL OR country_iso_code IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: country_iso_code IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: country_iso_code is required
+    severity: HIGH
+    validation_logic: country_iso_code IS NOT NULL
+    related_columns: []
+  profiling: {}
+- name: address_line_1
+  description: Address Line 1
+  dtype: Text
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Text data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(address_line_1 AS Text) IS NOT NULL OR address_line_1 IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: address_line_1 IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: address_line_1 is required
+    severity: HIGH
+    validation_logic: address_line_1 IS NOT NULL
+    related_columns: []
+  profiling: {}
+- name: address_line_2
+  description: Address Line 2
+  dtype: Text
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Text data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(address_line_2 AS Text) IS NOT NULL OR address_line_2 IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: address_line_3
+  description: Address Line 3
+  dtype: Text
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Text data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(address_line_3 AS Text) IS NOT NULL OR address_line_3 IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: address_line_4
+  description: Address Line 4
+  dtype: Text
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Text data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(address_line_4 AS Text) IS NOT NULL OR address_line_4 IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: address_line_5
+  description: Address Line 5
+  dtype: Text
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Text data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(address_line_5 AS Text) IS NOT NULL OR address_line_5 IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: address_line_6
+  description: Address Line 6
+  dtype: Text
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Text data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(address_line_6 AS Text) IS NOT NULL OR address_line_6 IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: address_line_7
+  description: Address Line 7
+  dtype: Text
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Text data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(address_line_7 AS Text) IS NOT NULL OR address_line_7 IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: address_line_8
+  description: Address Line 8
+  dtype: Text
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Text data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(address_line_8 AS Text) IS NOT NULL OR address_line_8 IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: address_line_9
+  description: Address Line 9
+  dtype: Text
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Text data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(address_line_9 AS Text) IS NOT NULL OR address_line_9 IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: city
+  description: City
+  dtype: Text
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Text data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(city AS Text) IS NOT NULL OR city IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: city IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: city is required
+    severity: HIGH
+    validation_logic: city IS NOT NULL
+    related_columns: []
+  profiling: {}
+- name: city_subdivision_1
+  description: City Subdivision 1
+  dtype: Text
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Text data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(city_subdivision_1 AS Text) IS NOT NULL OR city_subdivision_1 IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: city_subdivision_2
+  description: City Subdivision 2
+  dtype: Text
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Text data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(city_subdivision_2 AS Text) IS NOT NULL OR city_subdivision_2 IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: region
+  description: Region
+  dtype: Country_Region_ID
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Country_Region_ID data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(region AS Country_Region_ID) IS NOT NULL OR region IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: region IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: LOOKUP_EXISTENCE_CHECK
+    description: Field values must exist in the approved reference dataset.
+    severity: HIGH
+    validation_logic: region exists in reference dataset
+    business_impact: Invalid references may break enterprise joins and reporting.
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: region is required
+    severity: HIGH
+    validation_logic: region IS NOT NULL
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: 'Region: lookup transformation missing reference'
+    severity: HIGH
+    related_columns: []
+  profiling: {}
+- name: region_subdivision_1
+  description: Region Subdivision 1
+  dtype: Text
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Text data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(region_subdivision_1 AS Text) IS NOT NULL OR region_subdivision_1 IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: region_subdivision_2
+  description: Region Subdivision 2
+  dtype: Text
+  nullable: true
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Text data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(region_subdivision_2 AS Text) IS NOT NULL OR region_subdivision_2 IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  profiling: {}
+- name: postal_code
+  description: Postal Code
+  dtype: Text
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Text data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(postal_code AS Text) IS NOT NULL OR postal_code IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: postal_code IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: worker_address_data
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: postal_code is required
+    severity: HIGH
+    validation_logic: postal_code IS NOT NULL
+    related_columns: []
+  profiling: {}

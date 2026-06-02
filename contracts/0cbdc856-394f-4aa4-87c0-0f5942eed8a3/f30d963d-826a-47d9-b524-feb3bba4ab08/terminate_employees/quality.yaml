@@ -1,0 +1,161 @@
+table_name: terminate_employees
+description: Terminate Employees table in human_resources domain
+domain: human_resources
+primary_key: []
+columns:
+- name: employee_id
+  description: Employee ID
+  dtype: Text
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: terminate_employees
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Text data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(employee_id AS Text) IS NOT NULL OR employee_id IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: terminate_employees
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: employee_id IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: terminate_employees
+    rule_category: GENERAL
+    sub_category: REQUIRED_FIELD_CHECK
+    description: employee_id is required
+    severity: HIGH
+    validation_logic: employee_id IS NOT NULL
+    related_columns: []
+  profiling: {}
+- name: termination_date
+  description: Termination Date
+  dtype: dd-MMM-yyyy
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: terminate_employees
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared dd-MMM-yyyy data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(termination_date AS dd-MMM-yyyy) IS NOT NULL OR termination_date IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: terminate_employees
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: termination_date IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: terminate_employees
+    rule_category: GENERAL
+    sub_category: REQUIRED_FIELD_CHECK
+    description: termination_date is required
+    severity: HIGH
+    validation_logic: termination_date IS NOT NULL
+    related_columns: []
+  profiling: {}
+- name: last_day_of_work
+  description: Last Day of Work
+  dtype: dd-MMM-yyyy
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: terminate_employees
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared dd-MMM-yyyy data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(last_day_of_work AS dd-MMM-yyyy) IS NOT NULL OR last_day_of_work IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: terminate_employees
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: last_day_of_work IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: terminate_employees
+    rule_category: GENERAL
+    sub_category: REQUIRED_FIELD_CHECK
+    description: last_day_of_work is required
+    severity: HIGH
+    validation_logic: last_day_of_work IS NOT NULL
+    related_columns: []
+  profiling: {}
+- name: primary_termination_subcategory_reason
+  description: Primary Termination Subcategory Reason
+  dtype: Termination_Subcategory_ID
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: terminate_employees
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Termination_Subcategory_ID data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(primary_termination_subcategory_reason AS Termination_Subcategory_ID) IS NOT NULL OR primary_termination_subcategory_reason
+      IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: terminate_employees
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: primary_termination_subcategory_reason IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: terminate_employees
+    rule_category: GENERAL
+    sub_category: REQUIRED_FIELD_CHECK
+    description: primary_termination_subcategory_reason is required
+    severity: HIGH
+    validation_logic: primary_termination_subcategory_reason IS NOT NULL
+    related_columns: []
+  profiling: {}
+- name: pay_through_date
+  description: Pay Through Date
+  dtype: dd-MMM-yyyy
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: terminate_employees
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared dd-MMM-yyyy data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(pay_through_date AS dd-MMM-yyyy) IS NOT NULL OR pay_through_date IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: terminate_employees
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: pay_through_date IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: terminate_employees
+    rule_category: GENERAL
+    sub_category: REQUIRED_FIELD_CHECK
+    description: pay_through_date is required
+    severity: HIGH
+    validation_logic: pay_through_date IS NOT NULL
+    related_columns: []
+  profiling: {}

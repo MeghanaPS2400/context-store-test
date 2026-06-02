@@ -1,0 +1,145 @@
+table_name: worker_name_data
+description: Worker Name Data human_resources
+columns:
+- name: worker_id
+  business_name: Worker ID
+  physical_name: worker_id
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Employee Number
+  sample_values: []
+  tags: []
+- name: worker_type
+  business_name: Worker Type
+  physical_name: worker_type
+  logical_type: EE/CW
+  physical_type: EE/CW
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Employee Class/Type & contract type
+  sample_values: []
+  tags: []
+- name: country_iso_code
+  business_name: Country ISO Code
+  physical_name: country_iso_code
+  logical_type: ISO_3166-1_Alpha-3_Code
+  physical_type: ISO_3166-1_Alpha-3_Code
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Country
+  sample_values: []
+  tags: []
+- name: legal_first_name
+  business_name: Legal First Name
+  physical_name: legal_first_name
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Legal First Name
+  sample_values: []
+  tags: []
+- name: legal_middle_name
+  business_name: Legal Middle Name
+  physical_name: legal_middle_name
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Legal Middle Name
+  sample_values: []
+  tags: []
+- name: legal_last_name
+  business_name: Legal Last Name
+  physical_name: legal_last_name
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Legal Last Name
+  sample_values: []
+  tags: []
+- name: legal_secondary_name
+  business_name: Legal Secondary Name
+  physical_name: legal_secondary_name
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Legal Secondary Name
+  sample_values: []
+  tags: []
+- name: preferred_first_name
+  business_name: Preferred First Name
+  physical_name: preferred_first_name
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Preferred First Name
+  sample_values: []
+  tags: []
+- name: preferred_middle_name
+  business_name: Preferred Middle Name
+  physical_name: preferred_middle_name
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: N/A
+  sample_values: []
+  tags: []
+- name: preferred_last_name
+  business_name: Preferred Last Name
+  physical_name: preferred_last_name
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Preferred Last Name
+  sample_values: []
+  tags: []
+- name: preferred_secondary_name
+  business_name: Preferred Secondary Name
+  physical_name: preferred_secondary_name
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: false
+  unique: false
+  description: ''
+  sample_values: []
+  tags: []

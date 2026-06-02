@@ -1,0 +1,10 @@
+ownership: {}
+source: {}
+target:
+  description: Terminate Employees table in human_resources domain
+  domain_tags: []
+  target_schema: human_resources
+  target_table: terminate_employees
+  primary_key: []
+  natural_key: []
+sla: {}

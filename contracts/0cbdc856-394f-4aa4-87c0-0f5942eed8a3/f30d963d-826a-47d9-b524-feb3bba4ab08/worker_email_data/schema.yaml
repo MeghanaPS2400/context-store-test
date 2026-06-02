@@ -1,0 +1,68 @@
+table_name: worker_email_data
+description: Worker Email Data table in human_resources domain
+columns:
+- name: worker_id
+  business_name: Worker ID
+  physical_name: worker_id
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Employee Number
+  sample_values: []
+  tags: []
+- name: worker_type
+  business_name: Worker Type
+  physical_name: worker_type
+  logical_type: EE/CW
+  physical_type: EE/CW
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Employee Class/Type & contract type
+  sample_values: []
+  tags: []
+- name: email_type
+  business_name: Email Type
+  physical_name: email_type
+  logical_type: Communication_Usage_Type_ID
+  physical_type: Communication_Usage_Type_ID
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Email Type
+  sample_values: []
+  tags: []
+- name: primary
+  business_name: Primary
+  physical_name: primary
+  logical_type: True/False
+  physical_type: True/False
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Is Primary
+  sample_values: []
+  tags: []
+- name: email_address
+  business_name: Email Address
+  physical_name: email_address
+  logical_type: Email
+  physical_type: Email
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Email Address
+  sample_values: []
+  tags: []

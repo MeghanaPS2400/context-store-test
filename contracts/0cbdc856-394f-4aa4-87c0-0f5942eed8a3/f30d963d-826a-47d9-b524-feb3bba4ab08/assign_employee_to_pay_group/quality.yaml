@@ -1,0 +1,145 @@
+table_name: assign_employee_to_pay_group
+description: Assign Employee to Pay Group table in human_resources domain
+domain: human_resources
+primary_key:
+- employee_id
+columns:
+- name: employee_id
+  description: Employee ID
+  dtype: Text
+  nullable: false
+  primary_key: true
+  unique: true
+  quality_checks:
+  - table_name: assign_employee_to_pay_group
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Text data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(employee_id AS Text) IS NOT NULL OR employee_id IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: assign_employee_to_pay_group
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: employee_id IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: assign_employee_to_pay_group
+    rule_category: GENERAL
+    sub_category: UNIQUE_CHECK
+    description: Field values must be unique.
+    severity: HIGH
+    validation_logic: COUNT(DISTINCT employee_id) = COUNT(employee_id)
+    business_impact: Duplicate identifiers may cause duplicate entities.
+    related_columns: []
+  - table_name: assign_employee_to_pay_group
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: employee_id is required
+    severity: HIGH
+    validation_logic: employee_id IS NOT NULL
+    related_columns: []
+  - table_name: assign_employee_to_pay_group
+    rule_category: GENERAL
+    sub_category: UNIQUE_CHECK
+    description: employee_id is a primary key and must be unique
+    severity: HIGH
+    validation_logic: employee_id IS UNIQUE
+    related_columns: []
+  profiling: {}
+- name: effective_date
+  description: Effective Date
+  dtype: dd-MMM-yyyy
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: assign_employee_to_pay_group
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared dd-MMM-yyyy data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(effective_date AS dd-MMM-yyyy) IS NOT NULL OR effective_date IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: assign_employee_to_pay_group
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: effective_date IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: assign_employee_to_pay_group
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: effective_date is required
+    severity: HIGH
+    validation_logic: effective_date IS NOT NULL
+    related_columns: []
+  profiling: {}
+- name: position_id
+  description: Position ID
+  dtype: Text
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: assign_employee_to_pay_group
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Text data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(position_id AS Text) IS NOT NULL OR position_id IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: assign_employee_to_pay_group
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: position_id IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: assign_employee_to_pay_group
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: position_id is required
+    severity: HIGH
+    validation_logic: position_id IS NOT NULL
+    related_columns: []
+  profiling: {}
+- name: pay_group_id
+  description: Pay Group ID
+  dtype: Organization_Reference_ID
+  nullable: false
+  primary_key: false
+  unique: false
+  quality_checks:
+  - table_name: assign_employee_to_pay_group
+    rule_category: GENERAL
+    sub_category: DATA_TYPE_CHECK
+    description: Field values must conform to the declared Organization_Reference_ID data type.
+    severity: HIGH
+    validation_logic: TRY_CAST(pay_group_id AS Organization_Reference_ID) IS NOT NULL OR pay_group_id IS NULL
+    business_impact: Type-mismatched values break downstream loaders, joins, and analytics.
+    related_columns: []
+  - table_name: assign_employee_to_pay_group
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: Field must contain a value for all records.
+    severity: HIGH
+    validation_logic: pay_group_id IS NOT NULL
+    business_impact: Missing values may impact downstream analytics and business reporting.
+    related_columns: []
+  - table_name: assign_employee_to_pay_group
+    rule_category: GENERAL
+    sub_category: NOT_NULL_CHECK
+    description: pay_group_id is required
+    severity: HIGH
+    validation_logic: pay_group_id IS NOT NULL
+    related_columns: []
+  profiling: {}

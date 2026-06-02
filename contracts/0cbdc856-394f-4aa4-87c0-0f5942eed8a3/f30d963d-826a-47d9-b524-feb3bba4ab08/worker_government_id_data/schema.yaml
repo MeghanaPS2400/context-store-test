@@ -1,0 +1,68 @@
+table_name: worker_government_id_data
+description: Worker Government ID Data human_resources
+columns:
+- name: worker_id
+  business_name: Worker ID
+  physical_name: worker_id
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Employee Number
+  sample_values: []
+  tags: []
+- name: worker_type
+  business_name: Worker Type
+  physical_name: worker_type
+  logical_type: EE/CW
+  physical_type: EE/CW
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Employee Class/Type & contract type
+  sample_values: []
+  tags: []
+- name: government_id
+  business_name: Government ID
+  physical_name: government_id
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: National ID
+  sample_values: []
+  tags: []
+- name: government_id_type
+  business_name: Government ID Type
+  physical_name: government_id_type
+  logical_type: Government_ID_Type_ID
+  physical_type: Government_ID_Type_ID
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: National Id Card Type
+  sample_values: []
+  tags: []
+- name: country_iso_code
+  business_name: Country ISO Code
+  physical_name: country_iso_code
+  logical_type: ISO_3166-1_Alpha-3_Code
+  physical_type: ISO_3166-1_Alpha-3_Code
+  required: true
+  nullable: false
+  primary_key: false
+  unique: false
+  description: ''
+  source_column: Country
+  sample_values: []
+  tags: []

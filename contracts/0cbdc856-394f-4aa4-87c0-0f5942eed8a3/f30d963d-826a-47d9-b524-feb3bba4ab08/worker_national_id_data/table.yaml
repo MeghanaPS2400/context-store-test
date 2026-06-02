@@ -1,0 +1,16 @@
+ownership: {}
+source: {}
+target:
+  target: ''
+  description: Worker National ID Data table in the human_resources domain
+  domain_tags: []
+  format: ''
+  target_location: ''
+  target_schema: human_resources
+  target_table: worker_national_id_data
+  primary_key: []
+  natural_key: []
+sla:
+  watermark_column: ''
+  freshness_check_logic: ''
+  expected_frequency: ''
