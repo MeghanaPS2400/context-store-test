@@ -1,0 +1,96 @@
+table_name: assign_employee_to_pay_group
+description: Assign Employee to Pay Group table in human_resources domain
+domain: human_resources
+columns:
+- name: employee_id
+  description: Employee ID
+  dtype: Text
+  nullable: false
+  primary_key: 1.2.1
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: assign_employee_to_pay_group_employee_id_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(employee_id AS Text) IS NOT NULL OR employee_id IS NULL
+    - rule_id: assign_employee_to_pay_group_employee_id_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: employee_id IS NOT NULL
+    - rule_id: assign_employee_to_pay_group_employee_id_not_null_check_2
+      sub_category: NOT_NULL_CHECK
+      description: Employee ID is required
+      severity: HIGH
+      validation_logic: employee_id IS NOT NULL
+- name: effective_date
+  description: Effective Date
+  dtype: dd-MMM-yyyy
+  nullable: false
+  primary_key: 1.2.2
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: assign_employee_to_pay_group_effective_date_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared dd-MMM-yyyy data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(effective_date AS dd-MMM-yyyy) IS NOT NULL OR effective_date IS NULL
+    - rule_id: assign_employee_to_pay_group_effective_date_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: effective_date IS NOT NULL
+    - rule_id: assign_employee_to_pay_group_effective_date_not_null_check_2
+      sub_category: NOT_NULL_CHECK
+      description: Effective Date is required
+      severity: HIGH
+      validation_logic: effective_date IS NOT NULL
+- name: position_id
+  description: Position ID
+  dtype: Text
+  nullable: false
+  primary_key: 1.2.3
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: assign_employee_to_pay_group_position_id_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(position_id AS Text) IS NOT NULL OR position_id IS NULL
+    - rule_id: assign_employee_to_pay_group_position_id_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: position_id IS NOT NULL
+    - rule_id: assign_employee_to_pay_group_position_id_not_null_check_2
+      sub_category: NOT_NULL_CHECK
+      description: Position ID is required
+      severity: HIGH
+      validation_logic: position_id IS NOT NULL
+- name: pay_group_id
+  description: Pay Group ID
+  dtype: Organization_Reference_ID
+  nullable: false
+  primary_key: 1.2.4
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: assign_employee_to_pay_group_pay_group_id_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Organization_Reference_ID data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(pay_group_id AS Organization_Reference_ID) IS NOT NULL OR pay_group_id IS NULL
+    - rule_id: assign_employee_to_pay_group_pay_group_id_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: pay_group_id IS NOT NULL
+    - rule_id: assign_employee_to_pay_group_pay_group_id_not_null_check_2
+      sub_category: NOT_NULL_CHECK
+      description: Pay Group ID is required
+      severity: HIGH
+      validation_logic: pay_group_id IS NOT NULL

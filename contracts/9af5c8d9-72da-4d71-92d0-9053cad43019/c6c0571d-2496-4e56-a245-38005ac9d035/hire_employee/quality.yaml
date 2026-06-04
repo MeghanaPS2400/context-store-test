@@ -1,0 +1,385 @@
+table_name: hire_employee
+description: Hire Employee table in human_resources domain
+domain: human_resources
+columns:
+- name: employee_id_associate_id
+  description: Employee ID (Associate ID)
+  dtype: Text
+  nullable: false
+  primary_key: 1.1.1
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: hire_employee_employee_id_associate_id_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(employee_id_associate_id AS Text) IS NOT NULL OR employee_id_associate_id IS NULL
+    - rule_id: hire_employee_employee_id_associate_id_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: employee_id_associate_id IS NOT NULL
+    - rule_id: hire_employee_employee_id_associate_id_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: Column is marked as Required
+      severity: HIGH
+      validation_logic: employee_id_associate_id IS NOT NULL
+- name: hire_subcategory_reason
+  description: Hire Subcategory Reason
+  dtype: Text
+  nullable: true
+  primary_key: 1.1.2
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: hire_employee_hire_subcategory_reason_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(hire_subcategory_reason AS Text) IS NOT NULL OR hire_subcategory_reason IS NULL
+    - rule_id: hire_employee_hire_subcategory_reason_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: hire_subcategory_reason exists in reference dataset
+- name: first_day_of_work
+  description: First Day of Work
+  dtype: dd-MMM-yyyy
+  nullable: true
+  primary_key: 1.1.3
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: hire_employee_first_day_of_work_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared dd-MMM-yyyy data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(first_day_of_work AS dd-MMM-yyyy) IS NOT NULL OR first_day_of_work IS NULL
+- name: hire_date
+  description: The worker's most recent hire date. This report field cannot be effective dated.
+  dtype: dd-MMM-yyyy
+  nullable: false
+  primary_key: 1.1.4
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: hire_employee_hire_date_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared dd-MMM-yyyy data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(hire_date AS dd-MMM-yyyy) IS NOT NULL OR hire_date IS NULL
+    - rule_id: hire_employee_hire_date_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: hire_date IS NOT NULL
+    - rule_id: hire_employee_hire_date_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: Column is marked as Required
+      severity: HIGH
+      validation_logic: hire_date IS NOT NULL
+- name: continuous_service_date
+  description: Associate service date taking into account breaks in service.
+  dtype: dd-MMM-yyyy
+  nullable: true
+  primary_key: 1.1.5
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: hire_employee_continuous_service_date_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared dd-MMM-yyyy data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(continuous_service_date AS dd-MMM-yyyy) IS NOT NULL OR continuous_service_date IS NULL
+- name: probation_start_date
+  description: Probation Start Date
+  dtype: dd-MMM-yyyy
+  nullable: true
+  primary_key: 1.1.6
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: hire_employee_probation_start_date_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared dd-MMM-yyyy data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(probation_start_date AS dd-MMM-yyyy) IS NOT NULL OR probation_start_date IS NULL
+- name: probation_end_date
+  description: Probation End Date
+  dtype: dd-MMM-yyyy
+  nullable: true
+  primary_key: 1.1.7
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: hire_employee_probation_end_date_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared dd-MMM-yyyy data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(probation_end_date AS dd-MMM-yyyy) IS NOT NULL OR probation_end_date IS NULL
+- name: end_employment_date
+  description: End Employment Date
+  dtype: dd-MMM-yyyy
+  nullable: true
+  primary_key: 1.1.8
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: hire_employee_end_employment_date_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared dd-MMM-yyyy data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(end_employment_date AS dd-MMM-yyyy) IS NOT NULL OR end_employment_date IS NULL
+- name: benefit_service_date
+  description: Benefit Service Date
+  dtype: dd-MMM-yyyy
+  nullable: true
+  primary_key: 1.1.11
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: hire_employee_benefit_service_date_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared dd-MMM-yyyy data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(benefit_service_date AS dd-MMM-yyyy) IS NOT NULL OR benefit_service_date IS NULL
+- name: company_service_date
+  description: Company Service Date for the Worker.
+  dtype: dd-MMM-yyyy
+  nullable: true
+  primary_key: 1.1.12
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: hire_employee_company_service_date_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared dd-MMM-yyyy data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(company_service_date AS dd-MMM-yyyy) IS NOT NULL OR company_service_date IS NULL
+- name: position_id
+  description: The unique identifier for the worker's primary position.
+  dtype: Text
+  nullable: true
+  primary_key: 1.1.14
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: hire_employee_position_id_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(position_id AS Text) IS NOT NULL OR position_id IS NULL
+- name: job_code
+  description: Job Code
+  dtype: Job_Profile_ID
+  nullable: false
+  primary_key: 1.1.16
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: hire_employee_job_code_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Job_Profile_ID data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(job_code AS Job_Profile_ID) IS NOT NULL OR job_code IS NULL
+    - rule_id: hire_employee_job_code_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: job_code IS NOT NULL
+    - rule_id: hire_employee_job_code_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: Column is marked as Required
+      severity: HIGH
+      validation_logic: job_code IS NOT NULL
+- name: position_title
+  description: The worker's primary position.
+  dtype: Text
+  nullable: true
+  primary_key: 1.1.17
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: hire_employee_position_title_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(position_title AS Text) IS NOT NULL OR position_title IS NULL
+- name: business_title
+  description: The business title for the worker's primary position. If no business title is defined for a position, the position
+    title is returned back.
+  dtype: Text
+  nullable: true
+  primary_key: 1.1.18
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: hire_employee_business_title_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(business_title AS Text) IS NOT NULL OR business_title IS NULL
+- name: default_weekly_hours
+  description: 'The standard hours for the worker''s primary position.  Usually this is equal to the location standard hours
+    but can be overridden at the position level.  This is used in the calculation for Full Time Equivalent: Scheduled Weekly
+    Hours / Standard Weekly Hours.'
+  dtype: Number
+  nullable: false
+  primary_key: 1.1.24
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: hire_employee_default_weekly_hours_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Number data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(default_weekly_hours AS Number) IS NOT NULL OR default_weekly_hours IS NULL
+    - rule_id: hire_employee_default_weekly_hours_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: default_weekly_hours IS NOT NULL
+    - rule_id: hire_employee_default_weekly_hours_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: Column is marked as Required
+      severity: HIGH
+      validation_logic: default_weekly_hours IS NOT NULL
+- name: scheduled_weekly_hours
+  description: 'The weekly hours for the worker''s primary position.  This is used in the Full Time Equivalent calculation:
+    Scheduled Weekly Hours / Standard Weekly Hours.'
+  dtype: Number
+  nullable: false
+  primary_key: 1.1.25
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: hire_employee_scheduled_weekly_hours_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Number data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(scheduled_weekly_hours AS Number) IS NOT NULL OR scheduled_weekly_hours IS NULL
+    - rule_id: hire_employee_scheduled_weekly_hours_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: scheduled_weekly_hours IS NOT NULL
+    - rule_id: hire_employee_scheduled_weekly_hours_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: Column is marked as Required
+      severity: HIGH
+      validation_logic: scheduled_weekly_hours IS NOT NULL
+- name: pay_rate_type
+  description: The pay rate type for an associate's position and is used by payroll.
+  dtype: Pay_Rate_Type_ID
+  nullable: false
+  primary_key: 1.1.33
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: hire_employee_pay_rate_type_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Pay_Rate_Type_ID data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(pay_rate_type AS Pay_Rate_Type_ID) IS NOT NULL OR pay_rate_type IS NULL
+    - rule_id: hire_employee_pay_rate_type_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: pay_rate_type IS NOT NULL
+    - rule_id: hire_employee_pay_rate_type_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: pay_rate_type exists in reference dataset
+    - rule_id: hire_employee_pay_rate_type_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: Column is marked as Required
+      severity: HIGH
+      validation_logic: pay_rate_type IS NOT NULL
+- name: supervisory_organization_reference_id
+  description: Supervisory Organization Reference ID
+  dtype: Text
+  nullable: false
+  primary_key: 1.1.41
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: hire_employee_supervisory_organization_reference_id_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(supervisory_organization_reference_id AS Text) IS NOT NULL OR supervisory_organization_reference_id
+        IS NULL
+    - rule_id: hire_employee_supervisory_organization_reference_id_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: supervisory_organization_reference_id IS NOT NULL
+    - rule_id: hire_employee_supervisory_organization_reference_id_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: supervisory_organization_reference_id exists in reference dataset
+    - rule_id: hire_employee_supervisory_organization_reference_id_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: Column is marked as Required
+      severity: HIGH
+      validation_logic: supervisory_organization_reference_id IS NOT NULL
+- name: custom_organization_reference_id_2_personel_area
+  description: Custom Organization Reference ID 2(Personel Area)
+  dtype: Custom_Organization_Reference_ID
+  nullable: true
+  primary_key: 1.1.45
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: hire_employee_custom_organization_reference_id_2_personel_area_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Custom_Organization_Reference_ID data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(custom_organization_reference_id_2_personel_area AS Custom_Organization_Reference_ID) IS
+        NOT NULL OR custom_organization_reference_id_2_personel_area IS NULL
+    - rule_id: hire_employee_custom_organization_reference_id_2_personel_area_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: custom_organization_reference_id_2_personel_area exists in reference dataset
+- name: custom_organization_reference_id_3_business_unit
+  description: Custom Organization Reference ID 3(Business Unit)
+  dtype: Custom_Organization_Reference_ID
+  nullable: true
+  primary_key: 1.1.46
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: hire_employee_custom_organization_reference_id_3_business_unit_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Custom_Organization_Reference_ID data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(custom_organization_reference_id_3_business_unit AS Custom_Organization_Reference_ID) IS
+        NOT NULL OR custom_organization_reference_id_3_business_unit IS NULL
+    - rule_id: hire_employee_custom_organization_reference_id_3_business_unit_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: custom_organization_reference_id_3_business_unit exists in reference dataset
+- name: custom_organization_reference_id_4_product_department
+  description: Custom Organization Reference ID 4(Product Department
+  dtype: Custom_Organization_Reference_ID
+  nullable: true
+  primary_key: 1.1.47
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: hire_employee_custom_organization_reference_id_4_product_department_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Custom_Organization_Reference_ID data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(custom_organization_reference_id_4_product_department AS Custom_Organization_Reference_ID)
+        IS NOT NULL OR custom_organization_reference_id_4_product_department IS NULL
+    - rule_id: hire_employee_custom_organization_reference_id_4_product_department_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: custom_organization_reference_id_4_product_department exists in reference dataset

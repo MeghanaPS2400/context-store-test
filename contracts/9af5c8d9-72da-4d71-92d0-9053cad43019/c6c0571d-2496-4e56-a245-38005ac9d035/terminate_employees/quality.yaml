@@ -1,0 +1,120 @@
+table_name: terminate_employees
+description: Terminate Employees table in human_resources domain
+domain: human_resources
+columns:
+- name: employee_id
+  description: Employee ID
+  dtype: Text
+  nullable: false
+  primary_key: 1.3.1
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: terminate_employees_employee_id_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(employee_id AS Text) IS NOT NULL OR employee_id IS NULL
+    - rule_id: terminate_employees_employee_id_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: employee_id IS NOT NULL
+    - rule_id: terminate_employees_employee_id_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: employee_id is required
+      severity: HIGH
+      validation_logic: employee_id IS NOT NULL
+- name: termination_date
+  description: Termination Date
+  dtype: dd-MMM-yyyy
+  nullable: false
+  primary_key: 1.3.2
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: terminate_employees_termination_date_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared dd-MMM-yyyy data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(termination_date AS dd-MMM-yyyy) IS NOT NULL OR termination_date IS NULL
+    - rule_id: terminate_employees_termination_date_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: termination_date IS NOT NULL
+    - rule_id: terminate_employees_termination_date_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: termination_date is required
+      severity: HIGH
+      validation_logic: termination_date IS NOT NULL
+- name: last_day_of_work
+  description: Last Day of Work
+  dtype: dd-MMM-yyyy
+  nullable: false
+  primary_key: 1.3.3
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: terminate_employees_last_day_of_work_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared dd-MMM-yyyy data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(last_day_of_work AS dd-MMM-yyyy) IS NOT NULL OR last_day_of_work IS NULL
+    - rule_id: terminate_employees_last_day_of_work_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: last_day_of_work IS NOT NULL
+    - rule_id: terminate_employees_last_day_of_work_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: last_day_of_work is required
+      severity: HIGH
+      validation_logic: last_day_of_work IS NOT NULL
+- name: primary_termination_subcategory_reason
+  description: Primary Termination Subcategory Reason
+  dtype: Termination_Subcategory_ID
+  nullable: false
+  primary_key: 1.3.4
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: terminate_employees_primary_termination_subcategory_reason_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Termination_Subcategory_ID data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(primary_termination_subcategory_reason AS Termination_Subcategory_ID) IS NOT NULL OR primary_termination_subcategory_reason
+        IS NULL
+    - rule_id: terminate_employees_primary_termination_subcategory_reason_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: primary_termination_subcategory_reason IS NOT NULL
+    - rule_id: terminate_employees_primary_termination_subcategory_reason_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: primary_termination_subcategory_reason is required
+      severity: HIGH
+      validation_logic: primary_termination_subcategory_reason IS NOT NULL
+- name: pay_through_date
+  description: Pay Through Date
+  dtype: dd-MMM-yyyy
+  nullable: false
+  primary_key: 1.3.7
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: terminate_employees_pay_through_date_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared dd-MMM-yyyy data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(pay_through_date AS dd-MMM-yyyy) IS NOT NULL OR pay_through_date IS NULL
+    - rule_id: terminate_employees_pay_through_date_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: pay_through_date IS NOT NULL
+    - rule_id: terminate_employees_pay_through_date_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: pay_through_date is required
+      severity: HIGH
+      validation_logic: pay_through_date IS NOT NULL

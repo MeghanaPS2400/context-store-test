@@ -1,0 +1,23 @@
+[
+  {
+    "asset_id": "c6c0571d-2496-4e56-a245-38005ac9d035",
+    "asset_name": "KVI Tracebility Matrix Updated Format (1)",
+    "skipped": false,
+    "skip_reason": null,
+    "error": null,
+    "tables": [
+      "hire_employee",
+      "assign_employee_to_pay_group",
+      "terminate_employees",
+      "add_retiree_status",
+      "worker_name_data",
+      "worker_email_data",
+      "worker_phone_data",
+      "worker_address_data",
+      "worker_biodemo_data",
+      "worker_national_id_data",
+      "worker_government_id_data",
+      "default_compensation_positions"
+    ]
+  }
+]

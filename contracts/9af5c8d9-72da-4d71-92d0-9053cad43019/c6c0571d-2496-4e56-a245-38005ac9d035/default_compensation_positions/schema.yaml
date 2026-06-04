@@ -1,0 +1,98 @@
+table_name: default_compensation_positions
+description: Default Compensation Positions table in human_resources domain
+columns:
+- name: position_id
+  business_name: Position ID
+  physical_name: position_id
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: 3.11.1
+  unique: false
+  description: ''
+  source_column: Position
+  tags: []
+- name: compensation_package_name
+  business_name: Compensation Package Name
+  physical_name: compensation_package_name
+  logical_type: Compensation_Package_ID
+  physical_type: Compensation_Package_ID
+  required: true
+  nullable: false
+  primary_key: 3.11.2
+  unique: false
+  description: ''
+  source_column: N/A
+  tags: []
+- name: compensation_grade_name
+  business_name: Compensation Grade Name
+  physical_name: compensation_grade_name
+  logical_type: Compensation_Grade_ID
+  physical_type: Compensation_Grade_ID
+  required: true
+  nullable: false
+  primary_key: 3.11.3
+  unique: false
+  description: ''
+  source_column: N/A
+  tags: []
+- name: compensation_grade_profile_name
+  business_name: Compensation Grade Profile Name
+  physical_name: compensation_grade_profile_name
+  logical_type: Compensation_Grade_Profile_ID
+  physical_type: Compensation_Grade_Profile_ID
+  required: false
+  nullable: true
+  primary_key: 3.11.4
+  unique: false
+  description: ''
+  source_column: Market Match ID
+  tags: []
+- name: compensation_step_name
+  business_name: Compensation Step Name
+  physical_name: compensation_step_name
+  logical_type: Compensation_Step_ID
+  physical_type: Compensation_Step_ID
+  required: false
+  nullable: true
+  primary_key: 3.11.5
+  unique: false
+  description: ''
+  source_column: N/A
+  tags: []
+- name: progression_start_date
+  business_name: Progression Start Date
+  physical_name: progression_start_date
+  logical_type: yyyy-mm-dd
+  physical_type: yyyy-mm-dd
+  required: false
+  nullable: true
+  primary_key: 3.11.6
+  unique: false
+  description: ''
+  source_column: N/A
+  tags: []
+- name: compensation_plan
+  business_name: Compensation Plan
+  physical_name: compensation_plan
+  logical_type: Compensation_Plan_ID
+  physical_type: Compensation_Plan_ID
+  required: true
+  nullable: false
+  primary_key: 3.11.7
+  unique: false
+  description: ''
+  source_column: N/A
+  tags: []
+- name: pay_plan_amount
+  business_name: Pay Plan Amount
+  physical_name: pay_plan_amount
+  logical_type: Number
+  physical_type: Number
+  required: false
+  nullable: true
+  primary_key: 3.11.8
+  unique: false
+  description: ''
+  tags: []

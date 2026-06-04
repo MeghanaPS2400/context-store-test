@@ -1,0 +1,137 @@
+table_name: worker_government_id_data
+description: Worker Government ID Data human_resources
+domain: human_resources
+columns:
+- name: worker_id
+  description: Worker ID
+  dtype: Text
+  nullable: false
+  primary_key: 2.9.1
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_government_id_data_worker_id_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(worker_id AS Text) IS NOT NULL OR worker_id IS NULL
+    - rule_id: worker_government_id_data_worker_id_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: worker_id IS NOT NULL
+    - rule_id: worker_government_id_data_worker_id_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: worker_id is marked as Required
+      severity: HIGH
+      validation_logic: worker_id IS NOT NULL
+- name: worker_type
+  description: Worker Type
+  dtype: EE/CW
+  nullable: false
+  primary_key: 2.9.2
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_government_id_data_worker_type_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared EE/CW data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(worker_type AS EE/CW) IS NOT NULL OR worker_type IS NULL
+    - rule_id: worker_government_id_data_worker_type_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: worker_type IS NOT NULL
+    - rule_id: worker_government_id_data_worker_type_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: worker_type exists in reference dataset
+    - rule_id: worker_government_id_data_worker_type_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: worker_type is marked as Required
+      severity: HIGH
+      validation_logic: worker_type IS NOT NULL
+    - rule_id: worker_government_id_data_worker_type_data_type_check_2
+      sub_category: DATA_TYPE_CHECK
+      description: 'Worker Type: lookup transformation missing reference'
+      severity: HIGH
+- name: government_id
+  description: Government ID
+  dtype: Text
+  nullable: false
+  primary_key: 2.9.3
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_government_id_data_government_id_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(government_id AS Text) IS NOT NULL OR government_id IS NULL
+    - rule_id: worker_government_id_data_government_id_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: government_id IS NOT NULL
+    - rule_id: worker_government_id_data_government_id_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: government_id is marked as Required
+      severity: HIGH
+      validation_logic: government_id IS NOT NULL
+- name: government_id_type
+  description: Government ID Type
+  dtype: Government_ID_Type_ID
+  nullable: false
+  primary_key: 2.9.4
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_government_id_data_government_id_type_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Government_ID_Type_ID data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(government_id_type AS Government_ID_Type_ID) IS NOT NULL OR government_id_type IS NULL
+    - rule_id: worker_government_id_data_government_id_type_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: government_id_type IS NOT NULL
+    - rule_id: worker_government_id_data_government_id_type_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: government_id_type exists in reference dataset
+    - rule_id: worker_government_id_data_government_id_type_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: government_id_type is marked as Required
+      severity: HIGH
+      validation_logic: government_id_type IS NOT NULL
+    - rule_id: worker_government_id_data_government_id_type_data_type_check_2
+      sub_category: DATA_TYPE_CHECK
+      description: 'Government ID Type: lookup transformation missing reference'
+      severity: HIGH
+- name: country_iso_code
+  description: Country ISO Code
+  dtype: ISO_3166-1_Alpha-3_Code
+  nullable: false
+  primary_key: 2.9.5
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_government_id_data_country_iso_code_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared ISO_3166-1_Alpha-3_Code data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(country_iso_code AS ISO_3166-1_Alpha-3_Code) IS NOT NULL OR country_iso_code IS NULL
+    - rule_id: worker_government_id_data_country_iso_code_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: country_iso_code IS NOT NULL
+    - rule_id: worker_government_id_data_country_iso_code_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: country_iso_code is marked as Required
+      severity: HIGH
+      validation_logic: country_iso_code IS NOT NULL

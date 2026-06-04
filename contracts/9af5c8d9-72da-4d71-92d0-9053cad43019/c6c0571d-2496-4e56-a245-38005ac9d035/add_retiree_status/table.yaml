@@ -1,0 +1,21 @@
+ownership: {}
+source:
+  source_table1:
+    source: ''
+    layer: ''
+    description: ''
+    domain_tags: []
+    format: ''
+    source_location: ''
+    primary_key: []
+target:
+  target: ''
+  description: Add Retiree Status table in human_resources domain
+  domain_tags: []
+  format: ''
+  target_location: ''
+  target_schema: human_resources
+  target_table: add_retiree_status
+  primary_key: []
+  natural_key: []
+sla: {}

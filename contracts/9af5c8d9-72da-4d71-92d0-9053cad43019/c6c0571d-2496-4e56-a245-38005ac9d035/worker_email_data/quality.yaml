@@ -1,0 +1,137 @@
+table_name: worker_email_data
+description: Worker Email Data table in human_resources domain
+domain: human_resources
+columns:
+- name: worker_id
+  description: Worker ID
+  dtype: Text
+  nullable: false
+  primary_key: 2.2.1
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_email_data_worker_id_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(worker_id AS Text) IS NOT NULL OR worker_id IS NULL
+    - rule_id: worker_email_data_worker_id_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: worker_id IS NOT NULL
+    - rule_id: worker_email_data_worker_id_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: worker_id is required
+      severity: HIGH
+      validation_logic: worker_id IS NOT NULL
+- name: worker_type
+  description: Worker Type
+  dtype: EE/CW
+  nullable: false
+  primary_key: 2.2.2
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_email_data_worker_type_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared EE/CW data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(worker_type AS EE/CW) IS NOT NULL OR worker_type IS NULL
+    - rule_id: worker_email_data_worker_type_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: worker_type IS NOT NULL
+    - rule_id: worker_email_data_worker_type_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: worker_type exists in reference dataset
+    - rule_id: worker_email_data_worker_type_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: worker_type is required
+      severity: HIGH
+      validation_logic: worker_type IS NOT NULL
+    - rule_id: worker_email_data_worker_type_data_type_check_2
+      sub_category: DATA_TYPE_CHECK
+      description: 'Worker Type: lookup transformation missing reference'
+      severity: HIGH
+- name: email_type
+  description: Email Type
+  dtype: Communication_Usage_Type_ID
+  nullable: false
+  primary_key: 2.2.3
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_email_data_email_type_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Communication_Usage_Type_ID data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(email_type AS Communication_Usage_Type_ID) IS NOT NULL OR email_type IS NULL
+    - rule_id: worker_email_data_email_type_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: email_type IS NOT NULL
+    - rule_id: worker_email_data_email_type_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: email_type exists in reference dataset
+    - rule_id: worker_email_data_email_type_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: email_type is required
+      severity: HIGH
+      validation_logic: email_type IS NOT NULL
+    - rule_id: worker_email_data_email_type_data_type_check_2
+      sub_category: DATA_TYPE_CHECK
+      description: 'Email Type: lookup transformation missing reference'
+      severity: HIGH
+- name: primary
+  description: Primary
+  dtype: True/False
+  nullable: false
+  primary_key: 2.2.4
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_email_data_primary_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared True/False data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(primary AS True/False) IS NOT NULL OR primary IS NULL
+    - rule_id: worker_email_data_primary_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: primary IS NOT NULL
+    - rule_id: worker_email_data_primary_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: primary is required
+      severity: HIGH
+      validation_logic: primary IS NOT NULL
+- name: email_address
+  description: Email Address
+  dtype: Email
+  nullable: false
+  primary_key: 2.2.5
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_email_data_email_address_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Email data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(email_address AS Email) IS NOT NULL OR email_address IS NULL
+    - rule_id: worker_email_data_email_address_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: email_address IS NOT NULL
+    - rule_id: worker_email_data_email_address_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: email_address is required
+      severity: HIGH
+      validation_logic: email_address IS NOT NULL

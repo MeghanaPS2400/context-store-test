@@ -1,0 +1,196 @@
+table_name: worker_name_data
+description: Worker Name Data table in human_resources domain
+domain: human_resources
+columns:
+- name: worker_id
+  description: Worker ID
+  dtype: Text
+  nullable: false
+  primary_key: 2.1.1
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_name_data_worker_id_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(worker_id AS Text) IS NOT NULL OR worker_id IS NULL
+    - rule_id: worker_name_data_worker_id_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: worker_id IS NOT NULL
+    - rule_id: worker_name_data_worker_id_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: worker_id is marked as Required
+      severity: HIGH
+      validation_logic: worker_id IS NOT NULL
+- name: worker_type
+  description: Worker Type
+  dtype: EE/CW
+  nullable: false
+  primary_key: 2.1.2
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_name_data_worker_type_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared EE/CW data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(worker_type AS EE/CW) IS NOT NULL OR worker_type IS NULL
+    - rule_id: worker_name_data_worker_type_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: worker_type IS NOT NULL
+    - rule_id: worker_name_data_worker_type_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: worker_type exists in reference dataset
+    - rule_id: worker_name_data_worker_type_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: worker_type is marked as Required
+      severity: HIGH
+      validation_logic: worker_type IS NOT NULL
+    - rule_id: worker_name_data_worker_type_data_type_check_2
+      sub_category: DATA_TYPE_CHECK
+      description: 'Worker Type: lookup transformation missing reference'
+      severity: HIGH
+- name: country_iso_code
+  description: Country ISO Code
+  dtype: ISO_3166-1_Alpha-3_Code
+  nullable: false
+  primary_key: 2.1.7
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_name_data_country_iso_code_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared ISO_3166-1_Alpha-3_Code data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(country_iso_code AS ISO_3166-1_Alpha-3_Code) IS NOT NULL OR country_iso_code IS NULL
+    - rule_id: worker_name_data_country_iso_code_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: country_iso_code IS NOT NULL
+    - rule_id: worker_name_data_country_iso_code_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: country_iso_code is marked as Required
+      severity: HIGH
+      validation_logic: country_iso_code IS NOT NULL
+- name: legal_first_name
+  description: Legal First Name
+  dtype: Text
+  nullable: false
+  primary_key: 2.1.10
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_name_data_legal_first_name_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(legal_first_name AS Text) IS NOT NULL OR legal_first_name IS NULL
+    - rule_id: worker_name_data_legal_first_name_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: legal_first_name IS NOT NULL
+    - rule_id: worker_name_data_legal_first_name_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: legal_first_name is marked as Required
+      severity: HIGH
+      validation_logic: legal_first_name IS NOT NULL
+- name: legal_middle_name
+  description: Legal Middle Name
+  dtype: Text
+  nullable: true
+  primary_key: 2.1.11
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_name_data_legal_middle_name_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(legal_middle_name AS Text) IS NOT NULL OR legal_middle_name IS NULL
+- name: legal_last_name
+  description: Legal Last Name
+  dtype: Text
+  nullable: true
+  primary_key: 2.1.12
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_name_data_legal_last_name_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(legal_last_name AS Text) IS NOT NULL OR legal_last_name IS NULL
+- name: legal_secondary_name
+  description: Legal Secondary Name
+  dtype: Text
+  nullable: true
+  primary_key: 2.1.13
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_name_data_legal_secondary_name_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(legal_secondary_name AS Text) IS NOT NULL OR legal_secondary_name IS NULL
+- name: preferred_first_name
+  description: Preferred First Name
+  dtype: Text
+  nullable: true
+  primary_key: 2.1.23
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_name_data_preferred_first_name_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(preferred_first_name AS Text) IS NOT NULL OR preferred_first_name IS NULL
+- name: preferred_middle_name
+  description: Preferred Middle Name
+  dtype: Text
+  nullable: true
+  primary_key: 2.1.24
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_name_data_preferred_middle_name_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(preferred_middle_name AS Text) IS NOT NULL OR preferred_middle_name IS NULL
+- name: preferred_last_name
+  description: Preferred Last Name
+  dtype: Text
+  nullable: true
+  primary_key: 2.1.25
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_name_data_preferred_last_name_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(preferred_last_name AS Text) IS NOT NULL OR preferred_last_name IS NULL
+- name: preferred_secondary_name
+  description: Preferred Secondary Name
+  dtype: Text
+  nullable: true
+  primary_key: 2.1.26
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_name_data_preferred_secondary_name_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(preferred_secondary_name AS Text) IS NOT NULL OR preferred_secondary_name IS NULL

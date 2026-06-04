@@ -1,0 +1,218 @@
+table_name: worker_phone_data
+description: Worker Phone Data table in human_resources domain
+domain: human_resources
+columns:
+- name: worker_id
+  description: Worker ID
+  dtype: Text
+  nullable: false
+  primary_key: 2.3.1
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_phone_data_worker_id_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(worker_id AS Text) IS NOT NULL OR worker_id IS NULL
+    - rule_id: worker_phone_data_worker_id_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: worker_id IS NOT NULL
+    - rule_id: worker_phone_data_worker_id_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: worker_id is marked as Required
+      severity: HIGH
+      validation_logic: worker_id IS NOT NULL
+- name: worker_type
+  description: Worker Type
+  dtype: EE/CW
+  nullable: false
+  primary_key: 2.3.2
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_phone_data_worker_type_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared EE/CW data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(worker_type AS EE/CW) IS NOT NULL OR worker_type IS NULL
+    - rule_id: worker_phone_data_worker_type_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: worker_type IS NOT NULL
+    - rule_id: worker_phone_data_worker_type_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: worker_type exists in reference dataset
+    - rule_id: worker_phone_data_worker_type_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: worker_type is marked as Required
+      severity: HIGH
+      validation_logic: worker_type IS NOT NULL
+    - rule_id: worker_phone_data_worker_type_data_type_check_2
+      sub_category: DATA_TYPE_CHECK
+      description: 'Worker Type: lookup transformation missing reference'
+      severity: HIGH
+- name: phone_number_type
+  description: Phone Number Type
+  dtype: Communication_Usage_Type_ID
+  nullable: false
+  primary_key: 2.3.3
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_phone_data_phone_number_type_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Communication_Usage_Type_ID data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(phone_number_type AS Communication_Usage_Type_ID) IS NOT NULL OR phone_number_type IS NULL
+    - rule_id: worker_phone_data_phone_number_type_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: phone_number_type IS NOT NULL
+    - rule_id: worker_phone_data_phone_number_type_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: phone_number_type exists in reference dataset
+    - rule_id: worker_phone_data_phone_number_type_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: phone_number_type is marked as Required
+      severity: HIGH
+      validation_logic: phone_number_type IS NOT NULL
+    - rule_id: worker_phone_data_phone_number_type_data_type_check_2
+      sub_category: DATA_TYPE_CHECK
+      description: 'Phone Number Type: lookup transformation missing reference'
+      severity: HIGH
+- name: primary
+  description: Primary
+  dtype: Y/N
+  nullable: false
+  primary_key: 2.3.4
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_phone_data_primary_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Y/N data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(primary AS Y/N) IS NOT NULL OR primary IS NULL
+    - rule_id: worker_phone_data_primary_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: primary IS NOT NULL
+    - rule_id: worker_phone_data_primary_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: primary is marked as Required
+      severity: HIGH
+      validation_logic: primary IS NOT NULL
+- name: country_iso_code
+  description: Country ISO Code
+  dtype: ISO_3166-1_Alpha-3_Code
+  nullable: false
+  primary_key: 2.3.5
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_phone_data_country_iso_code_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared ISO_3166-1_Alpha-3_Code data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(country_iso_code AS ISO_3166-1_Alpha-3_Code) IS NOT NULL OR country_iso_code IS NULL
+    - rule_id: worker_phone_data_country_iso_code_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: country_iso_code IS NOT NULL
+    - rule_id: worker_phone_data_country_iso_code_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: country_iso_code is marked as Required
+      severity: HIGH
+      validation_logic: country_iso_code IS NOT NULL
+- name: international_phone_code
+  description: International Phone Code
+  dtype: Number
+  nullable: true
+  primary_key: 2.3.6
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_phone_data_international_phone_code_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Number data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(international_phone_code AS Number) IS NOT NULL OR international_phone_code IS NULL
+- name: phone_number
+  description: Phone Number
+  dtype: Number
+  nullable: false
+  primary_key: 2.3.7
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_phone_data_phone_number_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Number data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(phone_number AS Number) IS NOT NULL OR phone_number IS NULL
+    - rule_id: worker_phone_data_phone_number_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: phone_number IS NOT NULL
+    - rule_id: worker_phone_data_phone_number_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: phone_number is marked as Required
+      severity: HIGH
+      validation_logic: phone_number IS NOT NULL
+- name: phone_extension
+  description: Phone Extension
+  dtype: Number
+  nullable: true
+  primary_key: 2.3.8
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_phone_data_phone_extension_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Number data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(phone_extension AS Number) IS NOT NULL OR phone_extension IS NULL
+- name: phone_device_type
+  description: Phone Device Type
+  dtype: Phone_Device_Type_ID
+  nullable: false
+  primary_key: 2.3.9
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_phone_data_phone_device_type_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Phone_Device_Type_ID data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(phone_device_type AS Phone_Device_Type_ID) IS NOT NULL OR phone_device_type IS NULL
+    - rule_id: worker_phone_data_phone_device_type_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: phone_device_type IS NOT NULL
+    - rule_id: worker_phone_data_phone_device_type_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: phone_device_type exists in reference dataset
+    - rule_id: worker_phone_data_phone_device_type_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: phone_device_type is marked as Required
+      severity: HIGH
+      validation_logic: phone_device_type IS NOT NULL
+    - rule_id: worker_phone_data_phone_device_type_data_type_check_2
+      sub_category: DATA_TYPE_CHECK
+      description: 'Phone Device Type: lookup transformation missing reference'
+      severity: HIGH

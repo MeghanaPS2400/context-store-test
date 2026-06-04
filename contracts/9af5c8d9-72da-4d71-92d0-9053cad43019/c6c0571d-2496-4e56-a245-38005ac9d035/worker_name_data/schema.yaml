@@ -1,0 +1,134 @@
+table_name: worker_name_data
+description: Worker Name Data table in human_resources domain
+columns:
+- name: worker_id
+  business_name: Worker ID
+  physical_name: worker_id
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: 2.1.1
+  unique: false
+  description: ''
+  source_column: Employee Number
+  tags: []
+- name: worker_type
+  business_name: Worker Type
+  physical_name: worker_type
+  logical_type: EE/CW
+  physical_type: EE/CW
+  required: true
+  nullable: false
+  primary_key: 2.1.2
+  unique: false
+  description: ''
+  source_column: Employee Class/Type & contract type
+  tags: []
+- name: country_iso_code
+  business_name: Country ISO Code
+  physical_name: country_iso_code
+  logical_type: ISO_3166-1_Alpha-3_Code
+  physical_type: ISO_3166-1_Alpha-3_Code
+  required: true
+  nullable: false
+  primary_key: 2.1.7
+  unique: false
+  description: ''
+  source_column: Country
+  tags: []
+- name: legal_first_name
+  business_name: Legal First Name
+  physical_name: legal_first_name
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: 2.1.10
+  unique: false
+  description: ''
+  source_column: Legal First Name
+  tags: []
+- name: legal_middle_name
+  business_name: Legal Middle Name
+  physical_name: legal_middle_name
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 2.1.11
+  unique: false
+  description: ''
+  source_column: Legal Middle Name
+  tags: []
+- name: legal_last_name
+  business_name: Legal Last Name
+  physical_name: legal_last_name
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 2.1.12
+  unique: false
+  description: ''
+  source_column: Legal Last Name
+  tags: []
+- name: legal_secondary_name
+  business_name: Legal Secondary Name
+  physical_name: legal_secondary_name
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 2.1.13
+  unique: false
+  description: ''
+  source_column: Legal Secondary Name
+  tags: []
+- name: preferred_first_name
+  business_name: Preferred First Name
+  physical_name: preferred_first_name
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 2.1.23
+  unique: false
+  description: ''
+  source_column: Preferred First Name
+  tags: []
+- name: preferred_middle_name
+  business_name: Preferred Middle Name
+  physical_name: preferred_middle_name
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 2.1.24
+  unique: false
+  description: ''
+  source_column: N/A
+  tags: []
+- name: preferred_last_name
+  business_name: Preferred Last Name
+  physical_name: preferred_last_name
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 2.1.25
+  unique: false
+  description: ''
+  source_column: Preferred Last Name
+  tags: []
+- name: preferred_secondary_name
+  business_name: Preferred Secondary Name
+  physical_name: preferred_secondary_name
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 2.1.26
+  unique: false
+  description: ''
+  tags: []

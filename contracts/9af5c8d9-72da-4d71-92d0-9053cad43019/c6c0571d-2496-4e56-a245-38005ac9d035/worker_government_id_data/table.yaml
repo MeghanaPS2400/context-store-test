@@ -1,0 +1,10 @@
+ownership: {}
+source: {}
+target:
+  description: Worker Government ID Data human_resources
+  domain_tags: []
+  target_schema: human_resources
+  target_table: worker_government_id_data
+  primary_key: []
+  natural_key: []
+sla: {}

@@ -1,0 +1,420 @@
+table_name: worker_address_data
+description: Worker Address  Data human_resources
+domain: human_resources
+columns:
+- name: worker_id
+  description: Worker ID
+  dtype: Text
+  nullable: false
+  primary_key: 2.4.1
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_worker_id_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(worker_id AS Text) IS NOT NULL OR worker_id IS NULL
+    - rule_id: worker_address_data_worker_id_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: worker_id IS NOT NULL
+    - rule_id: worker_address_data_worker_id_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: worker_id is marked as Required
+      severity: MEDIUM
+      validation_logic: worker_id IS NOT NULL
+- name: worker_type
+  description: Worker Type
+  dtype: EE/CW
+  nullable: false
+  primary_key: 2.4.2
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_worker_type_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared EE/CW data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(worker_type AS EE/CW) IS NOT NULL OR worker_type IS NULL
+    - rule_id: worker_address_data_worker_type_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: worker_type IS NOT NULL
+    - rule_id: worker_address_data_worker_type_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: worker_type exists in reference dataset
+    - rule_id: worker_address_data_worker_type_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: worker_type is marked as Required
+      severity: MEDIUM
+      validation_logic: worker_type IS NOT NULL
+    - rule_id: worker_address_data_worker_type_data_type_check_2
+      sub_category: DATA_TYPE_CHECK
+      description: 'Worker Type: lookup transformation missing reference'
+      severity: HIGH
+- name: address_type
+  description: Address Type
+  dtype: Communication_Usage_Type_ID
+  nullable: false
+  primary_key: 2.4.3
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_address_type_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Communication_Usage_Type_ID data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(address_type AS Communication_Usage_Type_ID) IS NOT NULL OR address_type IS NULL
+    - rule_id: worker_address_data_address_type_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: address_type IS NOT NULL
+    - rule_id: worker_address_data_address_type_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: address_type exists in reference dataset
+    - rule_id: worker_address_data_address_type_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: address_type is marked as Required
+      severity: MEDIUM
+      validation_logic: address_type IS NOT NULL
+    - rule_id: worker_address_data_address_type_data_type_check_2
+      sub_category: DATA_TYPE_CHECK
+      description: 'Address Type: lookup transformation missing reference'
+      severity: HIGH
+- name: primary
+  description: Primary
+  dtype: True/False
+  nullable: false
+  primary_key: 2.4.4
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_primary_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared True/False data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(primary AS True/False) IS NOT NULL OR primary IS NULL
+    - rule_id: worker_address_data_primary_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: primary IS NOT NULL
+    - rule_id: worker_address_data_primary_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: primary is marked as Required
+      severity: MEDIUM
+      validation_logic: primary IS NOT NULL
+- name: event_effective_date
+  description: Event Effective Date
+  dtype: dd-MMM-yyyy
+  nullable: true
+  primary_key: 2.4.5
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_event_effective_date_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared dd-MMM-yyyy data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(event_effective_date AS dd-MMM-yyyy) IS NOT NULL OR event_effective_date IS NULL
+- name: address_effective_date
+  description: Address Effective Date
+  dtype: dd-MMM-yyyy
+  nullable: true
+  primary_key: 2.4.6
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_address_effective_date_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared dd-MMM-yyyy data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(address_effective_date AS dd-MMM-yyyy) IS NOT NULL OR address_effective_date IS NULL
+- name: country_iso_code
+  description: Country ISO Code
+  dtype: ISO_3166-1_Alpha-3_Code
+  nullable: false
+  primary_key: 2.4.7
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_country_iso_code_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared ISO_3166-1_Alpha-3_Code data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(country_iso_code AS ISO_3166-1_Alpha-3_Code) IS NOT NULL OR country_iso_code IS NULL
+    - rule_id: worker_address_data_country_iso_code_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: country_iso_code IS NOT NULL
+    - rule_id: worker_address_data_country_iso_code_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: country_iso_code is marked as Required
+      severity: MEDIUM
+      validation_logic: country_iso_code IS NOT NULL
+- name: address_line_1
+  description: Address Line 1
+  dtype: Text
+  nullable: false
+  primary_key: 2.4.8
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_address_line_1_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(address_line_1 AS Text) IS NOT NULL OR address_line_1 IS NULL
+    - rule_id: worker_address_data_address_line_1_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: address_line_1 IS NOT NULL
+    - rule_id: worker_address_data_address_line_1_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: address_line_1 is marked as Required
+      severity: MEDIUM
+      validation_logic: address_line_1 IS NOT NULL
+- name: address_line_2
+  description: Address Line 2
+  dtype: Text
+  nullable: true
+  primary_key: 2.4.9
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_address_line_2_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(address_line_2 AS Text) IS NOT NULL OR address_line_2 IS NULL
+- name: address_line_3
+  description: Address Line 3
+  dtype: Text
+  nullable: true
+  primary_key: 2.4.10
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_address_line_3_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(address_line_3 AS Text) IS NOT NULL OR address_line_3 IS NULL
+- name: address_line_4
+  description: Address Line 4
+  dtype: Text
+  nullable: true
+  primary_key: 2.4.11
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_address_line_4_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(address_line_4 AS Text) IS NOT NULL OR address_line_4 IS NULL
+- name: address_line_5
+  description: Address Line 5
+  dtype: Text
+  nullable: true
+  primary_key: 2.4.12
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_address_line_5_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(address_line_5 AS Text) IS NOT NULL OR address_line_5 IS NULL
+- name: address_line_6
+  description: Address Line 6
+  dtype: Text
+  nullable: true
+  primary_key: 2.4.13
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_address_line_6_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(address_line_6 AS Text) IS NOT NULL OR address_line_6 IS NULL
+- name: address_line_7
+  description: Address Line 7
+  dtype: Text
+  nullable: true
+  primary_key: 2.4.14
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_address_line_7_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(address_line_7 AS Text) IS NOT NULL OR address_line_7 IS NULL
+- name: address_line_8
+  description: Address Line 8
+  dtype: Text
+  nullable: true
+  primary_key: 2.4.15
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_address_line_8_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(address_line_8 AS Text) IS NOT NULL OR address_line_8 IS NULL
+- name: address_line_9
+  description: Address Line 9
+  dtype: Text
+  nullable: true
+  primary_key: 2.4.16
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_address_line_9_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(address_line_9 AS Text) IS NOT NULL OR address_line_9 IS NULL
+- name: city
+  description: City
+  dtype: Text
+  nullable: false
+  primary_key: 2.4.17
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_city_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(city AS Text) IS NOT NULL OR city IS NULL
+    - rule_id: worker_address_data_city_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: city IS NOT NULL
+    - rule_id: worker_address_data_city_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: city is marked as Required
+      severity: MEDIUM
+      validation_logic: city IS NOT NULL
+- name: city_subdivision_1
+  description: City Subdivision 1
+  dtype: Text
+  nullable: true
+  primary_key: 2.4.18
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_city_subdivision_1_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(city_subdivision_1 AS Text) IS NOT NULL OR city_subdivision_1 IS NULL
+- name: city_subdivision_2
+  description: City Subdivision 2
+  dtype: Text
+  nullable: true
+  primary_key: 2.4.19
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_city_subdivision_2_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(city_subdivision_2 AS Text) IS NOT NULL OR city_subdivision_2 IS NULL
+- name: region
+  description: Region
+  dtype: Country_Region_ID
+  nullable: false
+  primary_key: 2.4.20
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_region_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Country_Region_ID data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(region AS Country_Region_ID) IS NOT NULL OR region IS NULL
+    - rule_id: worker_address_data_region_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: region IS NOT NULL
+    - rule_id: worker_address_data_region_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: region exists in reference dataset
+    - rule_id: worker_address_data_region_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: region is marked as Required
+      severity: MEDIUM
+      validation_logic: region IS NOT NULL
+    - rule_id: worker_address_data_region_data_type_check_2
+      sub_category: DATA_TYPE_CHECK
+      description: 'Region: lookup transformation missing reference'
+      severity: HIGH
+- name: region_subdivision_1
+  description: Region Subdivision 1
+  dtype: Text
+  nullable: true
+  primary_key: 2.4.21
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_region_subdivision_1_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(region_subdivision_1 AS Text) IS NOT NULL OR region_subdivision_1 IS NULL
+- name: region_subdivision_2
+  description: Region Subdivision 2
+  dtype: Text
+  nullable: true
+  primary_key: 2.4.22
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_region_subdivision_2_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(region_subdivision_2 AS Text) IS NOT NULL OR region_subdivision_2 IS NULL
+- name: postal_code
+  description: Postal Code
+  dtype: Text
+  nullable: false
+  primary_key: 2.4.23
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_address_data_postal_code_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(postal_code AS Text) IS NOT NULL OR postal_code IS NULL
+    - rule_id: worker_address_data_postal_code_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: postal_code IS NOT NULL
+    - rule_id: worker_address_data_postal_code_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: postal_code is marked as Required
+      severity: MEDIUM
+      validation_logic: postal_code IS NOT NULL

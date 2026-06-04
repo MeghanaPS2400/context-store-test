@@ -1,0 +1,259 @@
+table_name: hire_employee
+description: Hire Employee table in human_resources domain
+columns:
+- name: employee_id_associate_id
+  business_name: Employee ID (Associate ID)
+  physical_name: employee_id_associate_id
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: 1.1.1
+  unique: false
+  description: ''
+  source_column: Employee Number
+  tags: []
+- name: hire_subcategory_reason
+  business_name: Hire Subcategory Reason
+  physical_name: hire_subcategory_reason
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 1.1.2
+  unique: false
+  description: ''
+  source_column: Event Reason
+  tags: []
+- name: first_day_of_work
+  business_name: First Day of Work
+  physical_name: first_day_of_work
+  logical_type: dd-MMM-yyyy
+  physical_type: dd-MMM-yyyy
+  required: false
+  nullable: true
+  primary_key: 1.1.3
+  unique: false
+  description: ''
+  source_column: Most Recent Start Date
+  tags: []
+- name: hire_date
+  business_name: Hire Date
+  physical_name: hire_date
+  logical_type: dd-MMM-yyyy
+  physical_type: dd-MMM-yyyy
+  required: true
+  nullable: false
+  primary_key: 1.1.4
+  unique: false
+  description: The worker's most recent hire date. This report field cannot be effective dated.
+  source_column: Most Recent Start Date
+  tags: []
+- name: continuous_service_date
+  business_name: Continuous Service Date
+  physical_name: continuous_service_date
+  logical_type: dd-MMM-yyyy
+  physical_type: dd-MMM-yyyy
+  required: false
+  nullable: true
+  primary_key: 1.1.5
+  unique: false
+  description: Associate service date taking into account breaks in service.
+  source_column: Adjusted Seniority Date
+  tags: []
+- name: probation_start_date
+  business_name: Probation Start Date
+  physical_name: probation_start_date
+  logical_type: dd-MMM-yyyy
+  physical_type: dd-MMM-yyyy
+  required: false
+  nullable: true
+  primary_key: 1.1.6
+  unique: false
+  description: ''
+  source_column: Most Recent Start Date
+  tags: []
+- name: probation_end_date
+  business_name: Probation End Date
+  physical_name: probation_end_date
+  logical_type: dd-MMM-yyyy
+  physical_type: dd-MMM-yyyy
+  required: false
+  nullable: true
+  primary_key: 1.1.7
+  unique: false
+  description: ''
+  source_column: Probation Period End Date
+  tags: []
+- name: end_employment_date
+  business_name: End Employment Date
+  physical_name: end_employment_date
+  logical_type: dd-MMM-yyyy
+  physical_type: dd-MMM-yyyy
+  required: false
+  nullable: true
+  primary_key: 1.1.8
+  unique: false
+  description: ''
+  source_column: Contract End Date
+  tags: []
+- name: benefit_service_date
+  business_name: Benefit Service Date
+  physical_name: benefit_service_date
+  logical_type: dd-MMM-yyyy
+  physical_type: dd-MMM-yyyy
+  required: false
+  nullable: true
+  primary_key: 1.1.11
+  unique: false
+  description: ''
+  source_column: Pension Start Date
+  tags: []
+- name: company_service_date
+  business_name: Company Service Date
+  physical_name: company_service_date
+  logical_type: dd-MMM-yyyy
+  physical_type: dd-MMM-yyyy
+  required: false
+  nullable: true
+  primary_key: 1.1.12
+  unique: false
+  description: Company Service Date for the Worker.
+  source_column: Kellanova Service Date
+  tags: []
+- name: position_id
+  business_name: Position ID
+  physical_name: position_id
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 1.1.14
+  unique: false
+  description: The unique identifier for the worker's primary position.
+  source_column: Position ID
+  tags: []
+- name: job_code
+  business_name: Job Code
+  physical_name: job_code
+  logical_type: Job_Profile_ID
+  physical_type: Job_Profile_ID
+  required: true
+  nullable: false
+  primary_key: 1.1.16
+  unique: false
+  description: ''
+  source_column: Job Key
+  tags: []
+- name: position_title
+  business_name: Position Title
+  physical_name: position_title
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 1.1.17
+  unique: false
+  description: The worker's primary position.
+  source_column: Position Name
+  tags: []
+- name: business_title
+  business_name: Business Title
+  physical_name: business_title
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 1.1.18
+  unique: false
+  description: The business title for the worker's primary position. If no business title is defined for a position, the position
+    title is returned back.
+  source_column: Position Title
+  tags: []
+- name: default_weekly_hours
+  business_name: Default Weekly Hours
+  physical_name: default_weekly_hours
+  logical_type: Number
+  physical_type: Number
+  required: true
+  nullable: false
+  primary_key: 1.1.24
+  unique: false
+  description: 'The standard hours for the worker''s primary position.  Usually this is equal to the location standard hours
+    but can be overridden at the position level.  This is used in the calculation for Full Time Equivalent: Scheduled Weekly
+    Hours / Standard Weekly Hours.'
+  source_column: Standard Weekly Hours (Job Key/Position)
+  tags: []
+- name: scheduled_weekly_hours
+  business_name: Scheduled Weekly Hours
+  physical_name: scheduled_weekly_hours
+  logical_type: Number
+  physical_type: Number
+  required: true
+  nullable: false
+  primary_key: 1.1.25
+  unique: false
+  description: 'The weekly hours for the worker''s primary position.  This is used in the Full Time Equivalent calculation:
+    Scheduled Weekly Hours / Standard Weekly Hours.'
+  source_column: Standard Weekly Hours (Employee)
+  tags: []
+- name: pay_rate_type
+  business_name: Pay Rate Type
+  physical_name: pay_rate_type
+  logical_type: Pay_Rate_Type_ID
+  physical_type: Pay_Rate_Type_ID
+  required: true
+  nullable: false
+  primary_key: 1.1.33
+  unique: false
+  description: The pay rate type for an associate's position and is used by payroll.
+  source_column: Pay Type
+  tags: []
+- name: supervisory_organization_reference_id
+  business_name: Supervisory Organization Reference ID
+  physical_name: supervisory_organization_reference_id
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: 1.1.41
+  unique: false
+  description: ''
+  source_column: Manager Employee ID/Position ID
+  tags: []
+- name: custom_organization_reference_id_2_personel_area
+  business_name: Custom Organization Reference ID 2(Personel Area)
+  physical_name: custom_organization_reference_id_2_personel_area
+  logical_type: Custom_Organization_Reference_ID
+  physical_type: Custom_Organization_Reference_ID
+  required: false
+  nullable: true
+  primary_key: 1.1.45
+  unique: false
+  description: ''
+  source_column: N/A
+  tags: []
+- name: custom_organization_reference_id_3_business_unit
+  business_name: Custom Organization Reference ID 3(Business Unit)
+  physical_name: custom_organization_reference_id_3_business_unit
+  logical_type: Custom_Organization_Reference_ID
+  physical_type: Custom_Organization_Reference_ID
+  required: false
+  nullable: true
+  primary_key: 1.1.46
+  unique: false
+  description: ''
+  source_column: N/A
+  tags: []
+- name: custom_organization_reference_id_4_product_department
+  business_name: Custom Organization Reference ID 4(Product Department
+  physical_name: custom_organization_reference_id_4_product_department
+  logical_type: Custom_Organization_Reference_ID
+  physical_type: Custom_Organization_Reference_ID
+  required: false
+  nullable: true
+  primary_key: 1.1.47
+  unique: false
+  description: ''
+  source_column: N/A
+  tags: []

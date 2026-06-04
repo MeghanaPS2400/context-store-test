@@ -1,0 +1,51 @@
+table_name: worker_national_id_data
+description: Worker National ID Data human_resources
+columns:
+- name: worker_id
+  business_name: Worker ID
+  physical_name: worker_id
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: 2.8.1
+  unique: false
+  description: ''
+  source_column: Employee Number
+  tags: []
+- name: worker_type
+  business_name: Worker Type
+  physical_name: worker_type
+  logical_type: EE/CW
+  physical_type: EE/CW
+  required: true
+  nullable: false
+  primary_key: 2.8.2
+  unique: false
+  description: ''
+  source_column: Employee Class/Type & contract type
+  tags: []
+- name: national_id
+  business_name: National ID
+  physical_name: national_id
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: 2.8.3
+  unique: false
+  description: ''
+  source_column: National ID
+  tags: []
+- name: national_id_type
+  business_name: National ID Type
+  physical_name: national_id_type
+  logical_type: National_ID_Type_Code
+  physical_type: National_ID_Type_Code
+  required: true
+  nullable: false
+  primary_key: 2.8.4
+  unique: false
+  description: ''
+  source_column: National Id Card Type
+  tags: []

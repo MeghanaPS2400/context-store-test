@@ -1,0 +1,13 @@
+ownership: {}
+source: {}
+target:
+  target: ''
+  description: Worker BioDemo  Data
+  domain_tags: []
+  format: ''
+  target_location: ''
+  target_schema: human_resources
+  target_table: worker_biodemo_data
+  primary_key: []
+  natural_key: []
+sla: {}

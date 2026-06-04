@@ -1,0 +1,266 @@
+table_name: worker_address_data
+description: Worker Address  Data human_resources
+columns:
+- name: worker_id
+  business_name: Worker ID
+  physical_name: worker_id
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: 2.4.1
+  unique: false
+  description: ''
+  source_column: Employee Number
+  tags: []
+- name: worker_type
+  business_name: Worker Type
+  physical_name: worker_type
+  logical_type: EE/CW
+  physical_type: EE/CW
+  required: true
+  nullable: false
+  primary_key: 2.4.2
+  unique: false
+  description: ''
+  source_column: Employee Class/Type & contract type
+  tags: []
+- name: address_type
+  business_name: Address Type
+  physical_name: address_type
+  logical_type: Communication_Usage_Type_ID
+  physical_type: Communication_Usage_Type_ID
+  required: true
+  nullable: false
+  primary_key: 2.4.3
+  unique: false
+  description: ''
+  source_column: Address Type
+  tags: []
+- name: primary
+  business_name: Primary
+  physical_name: primary
+  logical_type: True/False
+  physical_type: True/False
+  required: true
+  nullable: false
+  primary_key: 2.4.4
+  unique: false
+  description: ''
+  source_column: N/A
+  tags: []
+- name: event_effective_date
+  business_name: Event Effective Date
+  physical_name: event_effective_date
+  logical_type: dd-MMM-yyyy
+  physical_type: dd-MMM-yyyy
+  required: false
+  nullable: true
+  primary_key: 2.4.5
+  unique: false
+  description: ''
+  source_column: N/A
+  tags: []
+- name: address_effective_date
+  business_name: Address Effective Date
+  physical_name: address_effective_date
+  logical_type: dd-MMM-yyyy
+  physical_type: dd-MMM-yyyy
+  required: false
+  nullable: true
+  primary_key: 2.4.6
+  unique: false
+  description: ''
+  source_column: Address Effective Date
+  tags: []
+- name: country_iso_code
+  business_name: Country ISO Code
+  physical_name: country_iso_code
+  logical_type: ISO_3166-1_Alpha-3_Code
+  physical_type: ISO_3166-1_Alpha-3_Code
+  required: true
+  nullable: false
+  primary_key: 2.4.7
+  unique: false
+  description: ''
+  tags: []
+- name: address_line_1
+  business_name: Address Line 1
+  physical_name: address_line_1
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: 2.4.8
+  unique: false
+  description: ''
+  source_column: Address Line 1
+  tags: []
+- name: address_line_2
+  business_name: Address Line 2
+  physical_name: address_line_2
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 2.4.9
+  unique: false
+  description: ''
+  source_column: Address Line 2
+  tags: []
+- name: address_line_3
+  business_name: Address Line 3
+  physical_name: address_line_3
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 2.4.10
+  unique: false
+  description: ''
+  tags: []
+- name: address_line_4
+  business_name: Address Line 4
+  physical_name: address_line_4
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 2.4.11
+  unique: false
+  description: ''
+  tags: []
+- name: address_line_5
+  business_name: Address Line 5
+  physical_name: address_line_5
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 2.4.12
+  unique: false
+  description: ''
+  tags: []
+- name: address_line_6
+  business_name: Address Line 6
+  physical_name: address_line_6
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 2.4.13
+  unique: false
+  description: ''
+  tags: []
+- name: address_line_7
+  business_name: Address Line 7
+  physical_name: address_line_7
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 2.4.14
+  unique: false
+  description: ''
+  tags: []
+- name: address_line_8
+  business_name: Address Line 8
+  physical_name: address_line_8
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 2.4.15
+  unique: false
+  description: ''
+  tags: []
+- name: address_line_9
+  business_name: Address Line 9
+  physical_name: address_line_9
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 2.4.16
+  unique: false
+  description: ''
+  tags: []
+- name: city
+  business_name: City
+  physical_name: city
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: 2.4.17
+  unique: false
+  description: ''
+  source_column: CITY
+  tags: []
+- name: city_subdivision_1
+  business_name: City Subdivision 1
+  physical_name: city_subdivision_1
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 2.4.18
+  unique: false
+  description: ''
+  tags: []
+- name: city_subdivision_2
+  business_name: City Subdivision 2
+  physical_name: city_subdivision_2
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 2.4.19
+  unique: false
+  description: ''
+  tags: []
+- name: region
+  business_name: Region
+  physical_name: region
+  logical_type: Country_Region_ID
+  physical_type: Country_Region_ID
+  required: true
+  nullable: false
+  primary_key: 2.4.20
+  unique: false
+  description: ''
+  tags: []
+- name: region_subdivision_1
+  business_name: Region Subdivision 1
+  physical_name: region_subdivision_1
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 2.4.21
+  unique: false
+  description: ''
+  tags: []
+- name: region_subdivision_2
+  business_name: Region Subdivision 2
+  physical_name: region_subdivision_2
+  logical_type: Text
+  physical_type: Text
+  required: false
+  nullable: true
+  primary_key: 2.4.22
+  unique: false
+  description: ''
+  tags: []
+- name: postal_code
+  business_name: Postal Code
+  physical_name: postal_code
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: 2.4.23
+  unique: false
+  description: ''
+  source_column: ZIP-CODE
+  tags: []

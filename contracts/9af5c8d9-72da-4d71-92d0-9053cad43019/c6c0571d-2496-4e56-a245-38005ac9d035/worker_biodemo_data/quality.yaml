@@ -1,0 +1,253 @@
+table_name: worker_biodemo_data
+description: Worker BioDemo  Data
+domain: human_resources
+columns:
+- name: worker_id
+  description: Worker ID
+  dtype: Text
+  nullable: false
+  primary_key: 2.7.1
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_biodemo_data_worker_id_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(worker_id AS Text) IS NOT NULL OR worker_id IS NULL
+    - rule_id: worker_biodemo_data_worker_id_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: worker_id IS NOT NULL
+    - rule_id: worker_biodemo_data_worker_id_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: worker_id is marked as Required
+      severity: MEDIUM
+      validation_logic: worker_id IS NOT NULL
+- name: worker_type
+  description: Worker Type
+  dtype: EE/CW
+  nullable: false
+  primary_key: 2.7.2
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_biodemo_data_worker_type_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared EE/CW data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(worker_type AS EE/CW) IS NOT NULL OR worker_type IS NULL
+    - rule_id: worker_biodemo_data_worker_type_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: worker_type IS NOT NULL
+    - rule_id: worker_biodemo_data_worker_type_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: worker_type exists in reference dataset
+    - rule_id: worker_biodemo_data_worker_type_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: worker_type is marked as Required
+      severity: MEDIUM
+      validation_logic: worker_type IS NOT NULL
+    - rule_id: worker_biodemo_data_worker_type_data_type_check_2
+      sub_category: DATA_TYPE_CHECK
+      description: 'Worker Type: lookup transformation missing reference'
+      severity: HIGH
+- name: date_of_birth
+  description: Date of Birth
+  dtype: yyyy-mm-dd
+  nullable: true
+  primary_key: 2.7.3
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_biodemo_data_date_of_birth_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared yyyy-mm-dd data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(date_of_birth AS yyyy-mm-dd) IS NOT NULL OR date_of_birth IS NULL
+- name: date_of_death
+  description: Date of Death
+  dtype: yyyy-mm-dd
+  nullable: true
+  primary_key: 2.7.4
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_biodemo_data_date_of_death_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared yyyy-mm-dd data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(date_of_death AS yyyy-mm-dd) IS NOT NULL OR date_of_death IS NULL
+- name: gender_type
+  description: Gender Type
+  dtype: Gender_Code
+  nullable: true
+  primary_key: 2.7.5
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_biodemo_data_gender_type_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Gender_Code data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(gender_type AS Gender_Code) IS NOT NULL OR gender_type IS NULL
+    - rule_id: worker_biodemo_data_gender_type_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: gender_type exists in reference dataset
+    - rule_id: worker_biodemo_data_gender_type_data_type_check_2
+      sub_category: DATA_TYPE_CHECK
+      description: 'Gender Type: lookup transformation missing reference'
+      severity: HIGH
+- name: reporting_gender
+  description: Reporting Gender
+  dtype: Gender_Code
+  nullable: true
+  primary_key: 2.7.6
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_biodemo_data_reporting_gender_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Gender_Code data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(reporting_gender AS Gender_Code) IS NOT NULL OR reporting_gender IS NULL
+- name: sexual_orientation_gender_identity
+  description: Sexual Orientation & Gender Identity
+  dtype: LGBT_Identification_ID
+  nullable: true
+  primary_key: 2.7.7
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_biodemo_data_sexual_orientation_gender_identity_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared LGBT_Identification_ID data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(sexual_orientation_gender_identity AS LGBT_Identification_ID) IS NOT NULL OR sexual_orientation_gender_identity
+        IS NULL
+    - rule_id: worker_biodemo_data_sexual_orientation_gender_identity_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: sexual_orientation_gender_identity exists in reference dataset
+    - rule_id: worker_biodemo_data_sexual_orientation_gender_identity_data_type_check_2
+      sub_category: DATA_TYPE_CHECK
+      description: 'Sexual Orientation & Gender Identity: lookup transformation missing reference'
+      severity: HIGH
+- name: sexual_orientation
+  description: Sexual Orientation
+  dtype: Sexual_Orientation_ID
+  nullable: true
+  primary_key: 2.7.8
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_biodemo_data_sexual_orientation_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Sexual_Orientation_ID data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(sexual_orientation AS Sexual_Orientation_ID) IS NOT NULL OR sexual_orientation IS NULL
+    - rule_id: worker_biodemo_data_sexual_orientation_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: sexual_orientation exists in reference dataset
+    - rule_id: worker_biodemo_data_sexual_orientation_data_type_check_2
+      sub_category: DATA_TYPE_CHECK
+      description: 'Sexual Orientation: lookup transformation missing reference'
+      severity: HIGH
+- name: pronoun
+  description: Pronoun
+  dtype: Pronoun_ID
+  nullable: true
+  primary_key: 2.7.9
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_biodemo_data_pronoun_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Pronoun_ID data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(pronoun AS Pronoun_ID) IS NOT NULL OR pronoun IS NULL
+- name: marital_status_type
+  description: Marital Status Type
+  dtype: Marital_Status_ID
+  nullable: true
+  primary_key: 2.7.10
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_biodemo_data_marital_status_type_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Marital_Status_ID data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(marital_status_type AS Marital_Status_ID) IS NOT NULL OR marital_status_type IS NULL
+    - rule_id: worker_biodemo_data_marital_status_type_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: marital_status_type exists in reference dataset
+    - rule_id: worker_biodemo_data_marital_status_type_data_type_check_2
+      sub_category: DATA_TYPE_CHECK
+      description: 'Marital Status Type: lookup transformation missing reference'
+      severity: HIGH
+- name: marital_status_date
+  description: Marital Status Date
+  dtype: yyyy-mm-dd
+  nullable: true
+  primary_key: 2.7.11
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_biodemo_data_marital_status_date_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared yyyy-mm-dd data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(marital_status_date AS yyyy-mm-dd) IS NOT NULL OR marital_status_date IS NULL
+- name: hispanic_or_latino
+  description: Hispanic or Latino
+  dtype: True/False
+  nullable: true
+  primary_key: 2.7.12
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_biodemo_data_hispanic_or_latino_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared True/False data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(hispanic_or_latino AS True/False) IS NOT NULL OR hispanic_or_latino IS NULL
+- name: ethnicity_code
+  description: Ethnicity Code
+  dtype: Ethnicity_ID
+  nullable: true
+  primary_key: 2.7.13
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_biodemo_data_ethnicity_code_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Ethnicity_ID data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(ethnicity_code AS Ethnicity_ID) IS NOT NULL OR ethnicity_code IS NULL
+- name: ethnicity_code_visual_survey
+  description: Ethnicity Code - Visual Survey
+  dtype: Ethnicity_ID
+  nullable: true
+  primary_key: 2.7.14
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: worker_biodemo_data_ethnicity_code_visual_survey_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Ethnicity_ID data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(ethnicity_code_visual_survey AS Ethnicity_ID) IS NOT NULL OR ethnicity_code_visual_survey
+        IS NULL

@@ -1,0 +1,107 @@
+table_name: add_retiree_status
+description: Add Retiree Status table in human_resources domain
+domain: human_resources
+columns:
+- name: employee_id
+  description: Employee ID
+  dtype: Text
+  nullable: false
+  primary_key: 1.4.1
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: add_retiree_status_employee_id_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(employee_id AS Text) IS NOT NULL OR employee_id IS NULL
+    - rule_id: add_retiree_status_employee_id_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: employee_id IS NOT NULL
+    - rule_id: add_retiree_status_employee_id_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: employee_id is required
+      severity: MEDIUM
+      validation_logic: employee_id IS NOT NULL
+- name: retiree_status_date
+  description: Retiree Status Date
+  dtype: dd-MMM-yyyy
+  nullable: false
+  primary_key: 1.4.2
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: add_retiree_status_retiree_status_date_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared dd-MMM-yyyy data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(retiree_status_date AS dd-MMM-yyyy) IS NOT NULL OR retiree_status_date IS NULL
+    - rule_id: add_retiree_status_retiree_status_date_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: retiree_status_date IS NOT NULL
+    - rule_id: add_retiree_status_retiree_status_date_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: retiree_status_date is required
+      severity: MEDIUM
+      validation_logic: retiree_status_date IS NOT NULL
+- name: event_subcategory_reason
+  description: Event Subcategory Reason
+  dtype: General_Event_Subcategory_ID = HCM_Retiree_Conversion
+  nullable: false
+  primary_key: 1.4.3
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: add_retiree_status_event_subcategory_reason_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared General_Event_Subcategory_ID = HCM_Retiree_Conversion data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(event_subcategory_reason AS General_Event_Subcategory_ID = HCM_Retiree_Conversion) IS NOT
+        NULL OR event_subcategory_reason IS NULL
+    - rule_id: add_retiree_status_event_subcategory_reason_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: event_subcategory_reason IS NOT NULL
+    - rule_id: add_retiree_status_event_subcategory_reason_lookup_existence_check
+      sub_category: LOOKUP_EXISTENCE_CHECK
+      description: Field values must exist in the approved reference dataset.
+      severity: HIGH
+      validation_logic: event_subcategory_reason exists in reference dataset
+    - rule_id: add_retiree_status_event_subcategory_reason_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: event_subcategory_reason is required
+      severity: MEDIUM
+      validation_logic: event_subcategory_reason IS NOT NULL
+    - rule_id: add_retiree_status_event_subcategory_reason_data_type_check_2
+      sub_category: DATA_TYPE_CHECK
+      description: 'Event Subcategory Reason: lookup transformation missing reference'
+      severity: HIGH
+- name: retiree_organization_reference_id
+  description: Retiree Organization Reference ID
+  dtype: Text
+  nullable: false
+  primary_key: 1.4.4
+  unique: false
+  quality_checks:
+    GENERAL:
+    - rule_id: add_retiree_status_retiree_organization_reference_id_data_type_check
+      sub_category: DATA_TYPE_CHECK
+      description: Field values must conform to the declared Text data type.
+      severity: HIGH
+      validation_logic: TRY_CAST(retiree_organization_reference_id AS Text) IS NOT NULL OR retiree_organization_reference_id
+        IS NULL
+    - rule_id: add_retiree_status_retiree_organization_reference_id_not_null_check
+      sub_category: NOT_NULL_CHECK
+      description: Field must contain a value for all records.
+      severity: HIGH
+      validation_logic: retiree_organization_reference_id IS NOT NULL
+    - rule_id: add_retiree_status_retiree_organization_reference_id_required_field_check
+      sub_category: REQUIRED_FIELD_CHECK
+      description: retiree_organization_reference_id is required
+      severity: MEDIUM
+      validation_logic: retiree_organization_reference_id IS NOT NULL

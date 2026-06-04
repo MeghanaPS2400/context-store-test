@@ -1,0 +1,50 @@
+table_name: add_retiree_status
+description: Add Retiree Status table in human_resources domain
+columns:
+- name: employee_id
+  business_name: Employee ID
+  physical_name: employee_id
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: 1.4.1
+  unique: false
+  description: ''
+  source_column: Employee Number
+  tags: []
+- name: retiree_status_date
+  business_name: Retiree Status Date
+  physical_name: retiree_status_date
+  logical_type: dd-MMM-yyyy
+  physical_type: dd-MMM-yyyy
+  required: true
+  nullable: false
+  primary_key: 1.4.2
+  unique: false
+  description: ''
+  source_column: Term Date +1
+  tags: []
+- name: event_subcategory_reason
+  business_name: Event Subcategory Reason
+  physical_name: event_subcategory_reason
+  logical_type: General_Event_Subcategory_ID = HCM_Retiree_Conversion
+  physical_type: General_Event_Subcategory_ID = HCM_Retiree_Conversion
+  required: true
+  nullable: false
+  primary_key: 1.4.3
+  unique: false
+  description: ''
+  source_column: Default
+  tags: []
+- name: retiree_organization_reference_id
+  business_name: Retiree Organization Reference ID
+  physical_name: retiree_organization_reference_id
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: 1.4.4
+  unique: false
+  description: ''
+  tags: []

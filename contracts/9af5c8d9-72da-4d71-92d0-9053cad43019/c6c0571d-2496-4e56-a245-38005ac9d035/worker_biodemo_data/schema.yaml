@@ -1,0 +1,170 @@
+table_name: worker_biodemo_data
+description: Worker BioDemo  Data
+columns:
+- name: worker_id
+  business_name: Worker ID
+  physical_name: worker_id
+  logical_type: Text
+  physical_type: Text
+  required: true
+  nullable: false
+  primary_key: 2.7.1
+  unique: false
+  description: ''
+  source_column: Employee Number
+  tags: []
+- name: worker_type
+  business_name: Worker Type
+  physical_name: worker_type
+  logical_type: EE/CW
+  physical_type: EE/CW
+  required: true
+  nullable: false
+  primary_key: 2.7.2
+  unique: false
+  description: ''
+  source_column: Employee Class/Type & contract type
+  tags: []
+- name: date_of_birth
+  business_name: Date of Birth
+  physical_name: date_of_birth
+  logical_type: yyyy-mm-dd
+  physical_type: yyyy-mm-dd
+  required: false
+  nullable: true
+  primary_key: 2.7.3
+  unique: false
+  description: ''
+  source_column: Date of Birth
+  tags: []
+- name: date_of_death
+  business_name: Date of Death
+  physical_name: date_of_death
+  logical_type: yyyy-mm-dd
+  physical_type: yyyy-mm-dd
+  required: false
+  nullable: true
+  primary_key: 2.7.4
+  unique: false
+  description: ''
+  source_column: Date of Death
+  tags: []
+- name: gender_type
+  business_name: Gender Type
+  physical_name: gender_type
+  logical_type: Gender_Code
+  physical_type: Gender_Code
+  required: false
+  nullable: true
+  primary_key: 2.7.5
+  unique: false
+  description: ''
+  source_column: Gender
+  tags: []
+- name: reporting_gender
+  business_name: Reporting Gender
+  physical_name: reporting_gender
+  logical_type: Gender_Code
+  physical_type: Gender_Code
+  required: false
+  nullable: true
+  primary_key: 2.7.6
+  unique: false
+  description: ''
+  source_column: N/A
+  tags: []
+- name: sexual_orientation_gender_identity
+  business_name: Sexual Orientation & Gender Identity
+  physical_name: sexual_orientation_gender_identity
+  logical_type: LGBT_Identification_ID
+  physical_type: LGBT_Identification_ID
+  required: false
+  nullable: true
+  primary_key: 2.7.7
+  unique: false
+  description: ''
+  source_column: Do you consider yourself a member of the Lesbian, Gay, Bisexual and/or Transgender, Queer or other community?
+  tags: []
+- name: sexual_orientation
+  business_name: Sexual Orientation
+  physical_name: sexual_orientation
+  logical_type: Sexual_Orientation_ID
+  physical_type: Sexual_Orientation_ID
+  required: false
+  nullable: true
+  primary_key: 2.7.8
+  unique: false
+  description: ''
+  source_column: Do you consider yourself a member of the Lesbian, Gay, Bisexual and/or Transgender, Queer or other community?
+  tags: []
+- name: pronoun
+  business_name: Pronoun
+  physical_name: pronoun
+  logical_type: Pronoun_ID
+  physical_type: Pronoun_ID
+  required: false
+  nullable: true
+  primary_key: 2.7.9
+  unique: false
+  description: ''
+  source_column: N/A
+  tags: []
+- name: marital_status_type
+  business_name: Marital Status Type
+  physical_name: marital_status_type
+  logical_type: Marital_Status_ID
+  physical_type: Marital_Status_ID
+  required: false
+  nullable: true
+  primary_key: 2.7.10
+  unique: false
+  description: ''
+  source_column: Marital Status
+  tags: []
+- name: marital_status_date
+  business_name: Marital Status Date
+  physical_name: marital_status_date
+  logical_type: yyyy-mm-dd
+  physical_type: yyyy-mm-dd
+  required: false
+  nullable: true
+  primary_key: 2.7.11
+  unique: false
+  description: ''
+  tags: []
+- name: hispanic_or_latino
+  business_name: Hispanic or Latino
+  physical_name: hispanic_or_latino
+  logical_type: True/False
+  physical_type: True/False
+  required: false
+  nullable: true
+  primary_key: 2.7.12
+  unique: false
+  description: ''
+  source_column: Ethnicity Group
+  tags: []
+- name: ethnicity_code
+  business_name: Ethnicity Code
+  physical_name: ethnicity_code
+  logical_type: Ethnicity_ID
+  physical_type: Ethnicity_ID
+  required: false
+  nullable: true
+  primary_key: 2.7.13
+  unique: false
+  description: ''
+  source_column: Ethnicity Group
+  tags: []
+- name: ethnicity_code_visual_survey
+  business_name: Ethnicity Code - Visual Survey
+  physical_name: ethnicity_code_visual_survey
+  logical_type: Ethnicity_ID
+  physical_type: Ethnicity_ID
+  required: false
+  nullable: true
+  primary_key: 2.7.14
+  unique: false
+  description: ''
+  source_column: N/A
+  tags: []
